@@ -1,21 +1,18 @@
 import { Flex } from '@mantine/core'
 
-import { TotalDataItem } from '@shared/constants/allTexts'
-
 import { WelcomeLeftSection } from './welcomeLeftSection'
 
-const WelcomeFeature = ({ pageInfo }: { pageInfo?: TotalDataItem }) => {
+const WelcomeFeature = () => {
   return (
     <Flex
       w="100%"
       h="100%"
       justify="center"
       align="center"
+      pos="absolute"
+      style={{ zIndex: -1, opacity: 0.25 }}
     >
-      <WelcomeLeftSection
-        pageInfo={pageInfo}
-        activeBubble={false}
-      />
+      <WelcomeLeftSection />
     </Flex>
   )
 }

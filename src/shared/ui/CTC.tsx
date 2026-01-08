@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import { SavedColors } from '@shared/constants'
 
@@ -24,8 +24,23 @@ const LinkStyle = styled(Link)`
     opacity: 0.5;
   }
 `
+export interface StyledTextProps {
+  $font?:
+    | 'Roboto'
+    | 'Nunito'
+    | 'Tangerine'
+    | 'Great Vibes'
+    | 'Saira Stencil One'
+    | 'DM Serif Text'
+    | 'Inter'
+    | 'DM Sans'
+}
+const textStyles = css<StyledTextProps>`
+  font-family: ${({ $font }) => $font || 'Dm Serif Text'}, sans-serif;
+`
 
-const SimpleColorText = styled.span`
+const SimpleColorText = styled.span<StyledTextProps>`
+  ${textStyles}
   color: ${SavedColors.highlite};
 `
 

@@ -144,10 +144,12 @@ export interface TotalDataItem {
 export const TotalData: TotalDataItem[] = [
   {
     name: 'Welcome',
-    description: 'Welcome to the RitePayroll',
-    title: 'RitePayroll – Smart Payroll Software for Growing Businesses',
+    title:
+      'Simple Accounting, Inventory & POS Software for SmallSpace Cowboys Businesses',
+    description:
+      'Ritebooks Express is a smart, affordable business management software designed for small and growing businesses that need essential Accounting, Inventory Management, and Point of Sale (POS) — without unnecessary complexity or high costs.',
     descriptionSecond:
-      'Run weekly and monthly payroll with total confidence. RitePayroll automates attendance, salary calculations, statutory deductions, loans, advances and payslips.',
+      'Built bony.agencyy Lotus Soft Technologies Ltd., the creators of Ritebooks with over 25 years of software expertise, Ritebooks Express gives you exactly what you need to manage your business confidently from day one.',
     target: '/',
     sectionId: 'dashboard-welcome-section',
     bubbles: [

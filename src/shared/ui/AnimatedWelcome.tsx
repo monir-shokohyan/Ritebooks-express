@@ -45,7 +45,7 @@ const ChartWrapper = styled.div`
 const BarsContainer = styled.div`
   display: flex;
   align-items: flex-end;
-  gap: 2.3%;
+  gap: 3.3%;
   height: 100%;
   width: 100%;
 `
@@ -84,13 +84,6 @@ const data = [
   { id: 13, value: 59 },
   { id: 14, value: 28 },
   { id: 15, value: 18 },
-  { id: 16, value: 95 },
-  { id: 17, value: 68 },
-  { id: 18, value: 32 },
-  { id: 19, value: 98 },
-  { id: 20, value: 58 },
-  { id: 22, value: 75 },
-  { id: 21, value: 100 },
 ]
 const AnimatedChartComponent: React.FC<AnimatedChartProps> = ({
   animationDuration = 3000,

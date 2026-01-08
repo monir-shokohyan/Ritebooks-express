@@ -1,22 +1,58 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Flex, FlexProps, Menu, UnstyledButton } from '@mantine/core'
 import styled from 'styled-components'
 
 import { SavedColors } from '@shared/constants'
 
-const NavbarS = styled.nav`
-  position: sticky;
+const NavbarS = styled.nav<{ $isOpen: boolean }>`
+  position: fixed;
   display: flex;
-  top: 0%;
-  padding-inline: 20px;
-  height: 73px;
-  width: 100vw;
+  top: 50%;
+  right: ${(props) => (props.$isOpen ? '0px' : '-250px')};
+  width: ${(props) => (props.$isOpen ? '60px' : '0px')};
   align-items: center;
   justify-content: space-between;
   z-index: 4;
-  backdrop-filter: blur(10px);
+  background-color: ${SavedColors.highlite};
+  transform: translateY(-50%);
+  border-radius: 3px 0 0 3px;
+  transition:
+    right 0.3s ease-in-out,
+    width 0.3s ease-in-out;
+  overflow: hidden;
+
   @media (max-width: 1024px) {
-    height: 50px;
+    display: none;
+  }
+`
+
+const ToggleButton = styled.button<{ $isOpen: boolean }>`
+  position: fixed;
+  top: 50%;
+  right: ${(props) => (props.$isOpen ? '250px' : '0px')};
+  transform: translateY(-50%);
+  width: 40px;
+  height: 80px;
+  background-color: ${SavedColors.highlite};
+  border: none;
+  border-radius: 3px 0 0 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  transition: right 0.3s ease-in-out;
+  color: ${SavedColors.DemWhite};
+  font-size: 20px;
+
+  &:hover {
+    background-color: ${SavedColors.TextColor};
+  }
+
+  @media (max-width: 1024px) {
+    display: none;
   }
 `
 
@@ -24,51 +60,31 @@ const MenubarS = styled.div`
   display: flex;
   justify-content: start;
   align-items: center;
+  flex-direction: column;
   height: 100%;
-  width: 60%;
-  gap: 20px;
+  width: 100%;
+  padding: 20px 0;
 `
 
 const MenuItems = styled(Link)`
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: 15px 20px;
+  width: 100%;
   align-items: center;
-  height: 73px;
-  width: 101px;
   text-decoration: none;
   color: ${SavedColors.TextColor};
   font-size: 15px;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-style: normal;
-  transition: color 0.3s ease;
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: ${SavedColors.highlite};
-    transform: scaleX(0);
-    transform-origin: center;
-    transition: transform 0.35s ease-out;
-    border-radius: 10px;
-  }
+  transition: all 0.3s ease;
 
   &:hover,
   &.active {
-    color: ${SavedColors.highlite};
-
-    &::after {
-      transform: scaleX(1);
-    }
-  }
-
-  @media (max-width: 1024px) {
-    display: none;
+    color: ${SavedColors.DemWhite};
+    background-color: rgba(255, 255, 255, 0.1);
   }
 `
 
@@ -123,10 +139,10 @@ const MenuButtonContainer = styled(UnstyledButton)`
 
 const ProductMenuTrigger = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: 15px 3px;
   align-items: center;
-  height: 73px;
-  width: 101px;
+  width: 100%;
   text-decoration: none;
   color: ${SavedColors.TextColor};
   font-size: 15px;
@@ -139,30 +155,10 @@ const ProductMenuTrigger = styled.div`
   cursor: pointer;
   position: relative;
 
-  @media (max-width: 1024px) {
-    display: none;
-  }
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: ${SavedColors.highlite};
-    transform: scaleX(0);
-    transform-origin: center;
-    transition: transform 0.35s ease-out;
-    border-radius: 10px;
-  }
-
   &:hover,
   &.active {
-    color: ${SavedColors.highlite};
-
-    &::after {
-      transform: scaleX(1);
-    }
+    color: ${SavedColors.DemWhite};
+    background-color: rgba(255, 255, 255, 0.1);
   }
 `
 
@@ -266,6 +262,31 @@ const FooterSecondContainer = styled(Flex)<FlexProps>`
     width: 100%;
   }
 `
+
+// Example usage component
+export const CollapsibleNavbar = () => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <>
+      <ToggleButton
+        $isOpen={isOpen}
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        {isOpen ? '→' : '←'}
+      </ToggleButton>
+      <NavbarS $isOpen={isOpen}>
+        <MenubarS>
+          <MenuItems to="/">Home</MenuItems>
+          <MenuItems to="/about">About</MenuItems>
+          <MenuItems to="/services">Services</MenuItems>
+          <MenuItems to="/contact">Contact</MenuItems>
+        </MenubarS>
+      </NavbarS>
+    </>
+  )
+}
+
 export {
   CustomMenuItem,
   FooterContainer,
@@ -279,5 +300,6 @@ export {
   NavbarS,
   ProductMenuListTrigger,
   ProductMenuTrigger,
+  ToggleButton,
   VerticalLine,
 }

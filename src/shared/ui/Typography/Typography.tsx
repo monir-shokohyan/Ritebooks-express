@@ -10,6 +10,9 @@ export interface StyledTextProps {
     | 'Tangerine'
     | 'Great Vibes'
     | 'Saira Stencil One'
+    | 'DM Serif Text'
+    | 'Inter'
+    | 'DM Sans'
   fontSize?: string
   fontWeight?:
     | '100'
@@ -28,7 +31,7 @@ export interface StyledTextProps {
   width?: string
 }
 
-const textStyles = css<StyledTextProps>`
+export const TextStyles = css<StyledTextProps>`
   font-family: ${({ $font }) => $font || 'Roboto'}, sans-serif;
   font-size: ${({ fontSize }) => fontSize || '16px'};
   font-weight: ${({ fontWeight }) => fontWeight || '400'};
@@ -40,17 +43,17 @@ const textStyles = css<StyledTextProps>`
 `
 
 const TextWithFamily = styled.div<StyledTextProps>`
-  ${textStyles}
+  ${TextStyles}
 `
 const TitleWithFamily = styled.h1<StyledTextProps>`
-  ${textStyles}
+  ${TextStyles}
   @media (max-width:1024px) {
     font-size: 20px;
   }
 `
 
 const LinkS = styled(Link)<StyledTextProps>`
-  ${textStyles}
+  ${TextStyles}
   cursor: pointer;
 
   &:hover {
@@ -59,7 +62,7 @@ const LinkS = styled(Link)<StyledTextProps>`
 `
 
 const NavLinkS = styled(NavLink)<StyledTextProps>`
-  ${textStyles}
+  ${TextStyles}
   cursor: pointer;
 
   &:hover {
@@ -74,7 +77,7 @@ const NavLinkS = styled(NavLink)<StyledTextProps>`
 `
 
 const TextResponsive = styled.h1<StyledTextProps>`
-  ${textStyles}
+  ${TextStyles}
 
   ${({ fontSize = '16px', responsive = true }) => {
     if (!responsive) return ''
@@ -109,7 +112,7 @@ const TextResponsive = styled.h1<StyledTextProps>`
   }}
 `
 const TextResponsiveSmaller = styled.h1<StyledTextProps>`
-  ${textStyles}
+  ${TextStyles}
 
   ${({ fontSize = '16px', responsive = true }) => {
     if (!responsive) return ''

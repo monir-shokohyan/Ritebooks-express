@@ -1,55 +1,29 @@
-/* eslint-disable react/no-array-index-key */
-import { ChangeEvent, useEffect, useRef, useState } from 'react'
+/* eslint-disable @typescript-eslint/no-unnecessary-condition */
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useMemo, useState } from 'react'
+import { FaSearch } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
-import { Code, Input } from '@mantine/core'
+import { Button, Container, Flex } from '@mantine/core'
+import { useMediaQuery } from '@mantine/hooks'
+import { Spotlight, spotlight, SpotlightActionData } from '@mantine/spotlight'
 import { AnyObject } from 'yup'
 
+import { SavedColors } from '@shared/constants'
 import { TotalData, TotalDataItem } from '@shared/constants/allTexts'
 import { useNavigationScroll } from '@shared/hooks/useNavigationScroll'
 
-import {
-  Highlight,
-  ResultDescription,
-  ResultItem,
-  ResultsContainer,
-  ResultTitle,
-  SearchBox,
-} from './styles'
+import { TextResponsive } from '../Typography'
 
 interface SearchResult extends TotalDataItem {
   score: number
   matchedText: string
 }
 
-const SearchInput = ({
-  $showsearch,
-  deActiveMenu,
-}: {
-  $showsearch: boolean
-  deActiveMenu: () => void
-}) => {
-  const [value, setValue] = useState('')
-  const [results, setResults] = useState<SearchResult[]>([])
-  const [selectedIndex, setSelectedIndex] = useState<number>(-1)
+const SearchInput = () => {
   const { navigateAndScroll } = useNavigationScroll()
-  const resultsContainerRef = useRef<HTMLDivElement>(null)
-  const inputRef = useRef<HTMLInputElement>(null)
-  const escapeRegExp = (string: string) =>
-    string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
   const navigate = useNavigate()
-
-  const highlightText = (text: string, searchTerm: string) => {
-    if (!searchTerm.trim()) return text
-
-    const escapedTerm = escapeRegExp(searchTerm)
-    const regex = new RegExp(`(${escapedTerm})`, 'gi')
-    const parts = text.split(regex)
-
-    return parts.map((part, i) => {
-      const isMatch = part.toLowerCase() === searchTerm.toLowerCase()
-      return isMatch ? <Highlight key={i}>{part}</Highlight> : part
-    })
-  }
+  const [query, setQuery] = useState('')
+  const isMobile = useMediaQuery('(max-width: 760px)')
 
   const searchInValue = (
     value: AnyObject | string,
@@ -81,11 +55,10 @@ const SearchInput = ({
 
     const lowerTerm = searchTerm.toLowerCase()
 
-    // Helper to check if a string contains the search term (case-insensitive)
     const matches = (value?: string): boolean =>
       typeof value === 'string' && value.toLowerCase().includes(lowerTerm)
 
-    // 1. Top-level text fields
+    // Top-level text fields
     if (matches(item.name)) return item.name
     if (matches(item.title)) return item.title
     if (matches(item.dTitle)) return item.dTitle
@@ -93,7 +66,7 @@ const SearchInput = ({
     if (matches(item.overview)) return item.overview
     if (matches(item.descriptionSecond)) return item.descriptionSecond
 
-    // 2. Features (supports nested structure)
+    // Features
     if (Array.isArray(item.features)) {
       for (const feature of item.features) {
         if (typeof feature === 'object' && feature !== null) {
@@ -111,7 +84,7 @@ const SearchInput = ({
       }
     }
 
-    // 3. Best For
+    // Best For
     if (Array.isArray(item.bestFor)) {
       for (const entry of item.bestFor) {
         if (
@@ -127,7 +100,7 @@ const SearchInput = ({
       }
     }
 
-    // 4. Editions
+    // Editions
     if (Array.isArray(item.editions)) {
       for (const edition of item.editions) {
         if (typeof edition === 'object' && edition !== null) {
@@ -146,7 +119,7 @@ const SearchInput = ({
       }
     }
 
-    // 5. Sections (first and second)
+    // Sections
     const checkSections = (sections?: AnyObject[]) => {
       if (!Array.isArray(sections)) return false
       for (const section of sections) {
@@ -162,7 +135,7 @@ const SearchInput = ({
       checkSections(item.section) || checkSections(item.sectionSecond)
     if (sectionMatch) return sectionMatch as string
 
-    // 6. Simple string arrays
+    // Simple string arrays
     const checkStringArray = (arr?: unknown[]): string | false => {
       if (!Array.isArray(arr)) return false
       for (const value of arr) {
@@ -175,7 +148,6 @@ const SearchInput = ({
       checkStringArray(item.industries) || checkStringArray(item.deployment)
     if (arrayMatch) return arrayMatch
 
-    // Fallback to primary display field
     return item.description || item.name || item.title || ''
   }
 
@@ -226,14 +198,12 @@ const SearchInput = ({
     return prefix + text.slice(start, end) + suffix
   }
 
-  const handleSearch = (searchTerm: string) => {
-    if (!searchTerm.trim()) {
-      setResults([])
-      setSelectedIndex(-1)
-      return
+  const handleSearch = (searchQuery: string): SearchResult[] => {
+    if (!searchQuery.trim()) {
+      return []
     }
 
-    const lowerCaseTerm = searchTerm.toLowerCase()
+    const lowerCaseTerm = searchQuery.toLowerCase()
 
     const filteredResults = TotalData.map((item) => {
       let score = 0
@@ -264,35 +234,18 @@ const SearchInput = ({
         }
       })
 
-      const matchedText = findMatchedText(item, searchTerm)
+      const matchedText = findMatchedText(item, searchQuery)
       return { ...item, score, matchedText }
     })
       .filter((item) => item.score > 0)
       .sort((a, b) => b.score - a.score)
 
-    setResults(filteredResults)
-    setSelectedIndex(-1)
-  }
-
-  ///////////////////////////////
-
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const newValue = event.currentTarget.value
-    setValue(newValue)
-    handleSearch(newValue)
-  }
-
-  const handleClear = () => {
-    setValue('')
-    setResults([])
-    setSelectedIndex(-1)
+    return filteredResults
   }
 
   const handleResultClick = (result: SearchResult) => {
-    deActiveMenu()
-    setValue('')
-    setResults([])
-    setSelectedIndex(-1)
+    spotlight.close()
+
     if (!result.sectionId) {
       navigate(result.target)
       return
@@ -300,46 +253,21 @@ const SearchInput = ({
     navigateAndScroll('/', result.sectionId)
   }
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (results.length === 0) return
-
-    if (event.key === 'ArrowDown') {
-      event.preventDefault()
-      setSelectedIndex((prev) => (prev < results.length - 1 ? prev + 1 : prev))
-    } else if (event.key === 'ArrowUp') {
-      event.preventDefault()
-      setSelectedIndex((prev) => (prev > 0 ? prev - 1 : -1))
-    } else if (event.key === 'Enter') {
-      event.preventDefault()
-      if (selectedIndex >= 0 && selectedIndex < results.length) {
-        handleResultClick(results[selectedIndex])
-      }
-    } else if (event.key === 'Escape') {
-      setResults([])
-      setSelectedIndex(-1)
-    }
-  }
-
-  useEffect(() => {
-    if (selectedIndex >= 0 && resultsContainerRef.current) {
-      const selectedElement = resultsContainerRef.current.children[
-        selectedIndex
-      ] as HTMLElement
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-      if (selectedElement) {
-        selectedElement.scrollIntoView({
-          behavior: 'smooth',
-          block: 'nearest',
-        })
-      }
-    }
-  }, [selectedIndex, results.length])
+  const actions: SpotlightActionData[] = useMemo(() => {
+    const results = handleSearch(query)
+    return results.map((result) => ({
+      id: result.name || result.title || '',
+      label: result.name || result.title || '',
+      description: getTruncatedText(result.matchedText, query),
+      onClick: () => handleResultClick(result),
+    }))
+  }, [query])
 
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
         event.preventDefault()
-        inputRef.current?.focus()
+        spotlight.open()
       }
     }
 
@@ -348,55 +276,49 @@ const SearchInput = ({
   }, [])
 
   return (
-    <SearchBox $showsearch={$showsearch}>
-      <Input
-        placeholder="Search by keyword ..."
-        variant="filled"
-        value={value}
-        onChange={handleInputChange}
-        onKeyDown={handleKeyDown}
-        rightSection={
-          value !== '' ? (
-            <Input.ClearButton onClick={handleClear} />
-          ) : (
-            <Code style={{ fontSize: '10px' }}>Ctrl + K</Code>
-          )
-        }
-        rightSectionPointerEvents="auto"
-        rightSectionWidth={80}
-        radius="lg"
-        size="sm"
-        ref={inputRef}
+    <>
+      <Spotlight
+        actions={actions}
+        query={query}
+        onQueryChange={setQuery}
+        searchProps={{
+          leftSection: <FaSearch size={20} />,
+          placeholder: 'Search by keyword...',
+        }}
+        nothingFound="No results found"
+        highlightQuery
+        limit={10}
+        shortcut={['mod + K']}
+        scrollable
       />
-      {results.length > 0 && (
-        <ResultsContainer
-          ref={resultsContainerRef}
-          role="listbox"
-          aria-label="Search results"
+      <Button
+        onClick={() => spotlight.open()}
+        variant="outline"
+        radius={10}
+        leftSection={
+          <FaSearch
+            size={16}
+            color={SavedColors.TextColor}
+          />
+        }
+        color={SavedColors.TextColor}
+        rightSection={
+          <Container
+            p={5}
+            style={{ borderRadius: '5px', border: '1px solid lightgray' }}
+          >
+            <TextResponsive fontSize="12px">Ctrl + K</TextResponsive>
+          </Container>
+        }
+      >
+        <Flex
+          gap={10}
+          w={isMobile ? '65vw' : '25vw'}
         >
-          {results.map((result: SearchResult, index) => {
-            return (
-              <ResultItem
-                key={result.name}
-                to={result.target}
-                $isSelected={index === selectedIndex}
-                onClick={() => handleResultClick(result)}
-              >
-                <ResultTitle>
-                  {highlightText(result.name || result.title || '', value)}
-                </ResultTitle>
-                <ResultDescription>
-                  {highlightText(
-                    getTruncatedText(result.matchedText, value),
-                    value,
-                  )}
-                </ResultDescription>
-              </ResultItem>
-            )
-          })}
-        </ResultsContainer>
-      )}
-    </SearchBox>
+          <TextResponsive color={SavedColors.TextColor}>Search</TextResponsive>
+        </Flex>
+      </Button>
+    </>
   )
 }
 

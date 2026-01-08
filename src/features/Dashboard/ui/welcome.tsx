@@ -1,7 +1,14 @@
 /* eslint-disable react/jsx-pascal-case */
 import { memo } from 'react'
-import { FaCalendarAlt, FaDownload } from 'react-icons/fa'
+import {
+  FaArrowLeft,
+  FaArrowRight,
+  FaCalendarAlt,
+  FaDownload,
+} from 'react-icons/fa'
+import { Carousel } from '@mantine/carousel'
 import { Button, Flex } from '@mantine/core'
+import { useMediaQuery } from '@mantine/hooks'
 
 import { SavedColors } from '@shared/constants'
 import { FindByName } from '@shared/helpers/findByName'
@@ -9,60 +16,85 @@ import { useNavigationScroll } from '@shared/hooks/useNavigationScroll'
 import { Container } from '@shared/ui/Container'
 import { CTC } from '@shared/ui/CTC'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
-import { TitleWithFamily } from '@shared/ui/Typography'
+import { Logo } from '@shared/ui/Logo'
+import { SearchInput } from '@shared/ui/searchInput/searchInput'
+import { TextWithFamily, TitleWithFamily } from '@shared/ui/Typography'
 
-import { WelcomeText, WelcomeTitle } from '../styles/styles'
+import { WelcomeTitle } from '../styles/styles'
 import { WelcomeFeature } from './welcomeFeature'
 
 const Welcome = memo(() => {
   const { navigateAndScroll } = useNavigationScroll()
   const pageInfo = FindByName('Welcome')
+  const isMobile = useMediaQuery('(max-width: 760px)')
 
   return (
     <section id="dashboard-welcome-section">
       <Wrapper
-        rightSection={<WelcomeFeature pageInfo={pageInfo} />}
-        leftWidth="45%"
-        rightWidth="45%"
-        doubleOption={true}
+        doubleOption={false}
         activeHead={false}
-        $paddingTop="10px"
+        $paddingTop="0px"
         isReverseWrap={true}
-        bgWave={true}
+        bgWave={false}
       >
         <Flex
           px={10}
           direction="column"
           gap={20}
+          align="center"
+          w={isMobile ? '100%' : '60%'}
+          pt={isMobile ? '2rem' : '5rem'}
+          pb="5rem"
         >
+          <Logo />
           <TitleWithFamily
-            $font="Roboto"
+            $font="DM Sans"
             fontWeight="500"
             fontSize="30px"
-            $textalign="left"
+            $textalign="center"
           >
-            <CTC text="Welcome" /> to the
-            <CTC text=" RitePayroll " />
+            Welcome to the
+            <CTC text=" RiteBooks Express " />
           </TitleWithFamily>
           <WelcomeTitle
-            $font="Roboto"
+            $font="DM Sans"
             fontWeight="500"
+            $textalign="center"
           >
-            The <CTC text="RitePayroll" /> - Smart Payroll{' '}
-            <CTC text=" Software " />
-            for Growing Businesses.
+            Simple Accounting, Inventory & POS Software for SmallSpace Cowboys
+            Businesses
           </WelcomeTitle>
-          <WelcomeText
-            $font="Roboto"
-            fontWeight="400"
+          <SearchInput />
+
+          <Carousel
+            emblaOptions={{ loop: true, align: 'start' }}
+            style={{ paddingInline: '2rem' }}
+            nextControlIcon={<FaArrowRight color={SavedColors.highlite} />}
+            previousControlIcon={<FaArrowLeft color={SavedColors.highlite} />}
           >
-            {pageInfo?.descriptionSecond}
-          </WelcomeText>
+            <Carousel.Slide>
+              <TextWithFamily
+                $font="Inter"
+                $textalign="center"
+              >
+                {pageInfo?.description}
+              </TextWithFamily>
+            </Carousel.Slide>
+            <Carousel.Slide>
+              <TextWithFamily
+                $font="Inter"
+                $textalign="center"
+              >
+                {pageInfo?.descriptionSecond}
+              </TextWithFamily>
+            </Carousel.Slide>
+          </Carousel>
+
           <Container
             gap={20}
             w="100%"
             wrap="wrap"
-            justify="start"
+            justify="center"
             align="center"
             py={20}
           >
@@ -103,6 +135,7 @@ const Welcome = memo(() => {
             </Button>
           </Container>
         </Flex>
+        <WelcomeFeature />
       </Wrapper>
     </section>
   )

@@ -8,7 +8,7 @@ export const Providers = ({ children }: PropsWithChildren) => {
   return (
     <BrowserRouter basename="/">
       <ThemeProvider>
-        <ReactLenis
+        {/* <ReactLenis
           root
           options={{
             lerp: 0.1,
@@ -20,9 +20,9 @@ export const Providers = ({ children }: PropsWithChildren) => {
             touchMultiplier: 2,
             allowNestedScroll: true,
           }}
-        >
+        > */}
           {children}
-        </ReactLenis>
+        {/* </ReactLenis> */}
       </ThemeProvider>
     </BrowserRouter>
   )

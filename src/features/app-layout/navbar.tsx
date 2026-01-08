@@ -1,7 +1,15 @@
 import { memo } from 'react'
-import { IoChevronDown, IoChevronUp } from 'react-icons/io5'
+import {
+  HiOutlineHome,
+  HiOutlineInformationCircle,
+  HiOutlineLightBulb,
+  HiOutlinePhone,
+  HiOutlineShoppingBag,
+} from 'react-icons/hi'
+import { IoChevronDown, IoChevronUp, IoTrophyOutline } from 'react-icons/io5'
+import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
 import { Link } from 'react-router-dom'
-import { Burger, Container, Image, Menu, Popover } from '@mantine/core'
+import { Burger, Container, Image, Menu, Popover, Tooltip } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
 
 import { SavedColors } from '@shared/constants'
@@ -36,58 +44,100 @@ const Navbar = memo(() => {
   } = useManageNavbar()
   const isTabletOrMobile = useMediaQuery('(max-width: 1024px)')
   return (
-    <NavbarS>
+    <NavbarS $isOpen>
       <MenubarS>
-        <Image
-          src="/RITE PAYROLL.png"
-          alt="RitePayroll logo"
-          w={{ base: '150', lg: '150px' }}
-          h={{ base: '60px', lg: '65px' }}
-          fit="contain"
-          loading="lazy"
-        />
-
-        <MenuItems
-          to="/"
-          onClick={() => navigateAndScroll('/', 'dashboard-welcome-section')}
-          className={getSectionActive('dashboard-welcome-section')}
+        <Tooltip
+          label="Home"
+          position="left"
+          withArrow
+          transitionProps={{ transition: 'fade-left', duration: 300 }}
         >
-          Home
-        </MenuItems>
+          <MenuItems
+            to="/"
+            onClick={() => navigateAndScroll('/', 'dashboard-welcome-section')}
+            className={getSectionActive('dashboard-welcome-section')}
+          >
+            <HiOutlineHome
+              size={18}
+              strokeWidth={1.5}
+              id="my-tooltip"
+            />
+          </MenuItems>
+        </Tooltip>
 
-        <MenuItems
-          to="/"
-          onClick={() => navigateAndScroll('/', 'dashboard-aboutUs-section')}
-          className={getSectionActive('dashboard-aboutUs-section')}
+        <Tooltip
+          label="About Us"
+          position="left"
+          withArrow
+          transitionProps={{ transition: 'fade-left', duration: 300 }}
         >
-          About Us
-        </MenuItems>
+          <MenuItems
+            to="/"
+            onClick={() => navigateAndScroll('/', 'dashboard-aboutUs-section')}
+            className={getSectionActive('dashboard-aboutUs-section')}
+          >
+            <HiOutlineInformationCircle
+              size={18}
+              strokeWidth={1.5}
+            />
+          </MenuItems>
+        </Tooltip>
 
-        <MenuItems
-          to="/"
-          onClick={() => navigateAndScroll('/', 'dashboard-industries-section')}
-          className={getSectionActive('dashboard-industries-section')}
+        <Tooltip
+          label="Industries"
+          position="left"
+          withArrow
+          transitionProps={{ transition: 'fade-left', duration: 300 }}
         >
-          Industries
-        </MenuItems>
-
-        <MenuItems
-          to="/"
-          onClick={() => navigateAndScroll('/', 'dashboard-benefits-section')}
-          className={getSectionActive('dashboard-benefits-section')}
+          <MenuItems
+            to="/"
+            onClick={() =>
+              navigateAndScroll('/', 'dashboard-industries-section')
+            }
+            className={getSectionActive('dashboard-industries-section')}
+          >
+            <HiOutlineShoppingBag
+              size={18}
+              strokeWidth={1.5}
+            />
+          </MenuItems>
+        </Tooltip>
+        <Tooltip
+          label="Benefits"
+          position="left"
+          withArrow
+          transitionProps={{ transition: 'fade-left', duration: 300 }}
         >
-          Benefits
-        </MenuItems>
-
-        <MenuItems
-          to="/"
-          onClick={() => navigateAndScroll('/', 'dashboard-contact-section')}
-          className={getSectionActive('dashboard-contact-section')}
+          <MenuItems
+            to="/"
+            onClick={() => navigateAndScroll('/', 'dashboard-benefits-section')}
+            className={getSectionActive('dashboard-benefits-section')}
+          >
+            <IoTrophyOutline
+              size={18}
+              strokeWidth={1.5}
+            />
+          </MenuItems>
+        </Tooltip>
+        <Tooltip
+          label="Contact Us"
+          position="left"
+          withArrow
+          transitionProps={{ transition: 'fade-left', duration: 300 }}
         >
-          Contact Us
-        </MenuItems>
+          <MenuItems
+            to="/"
+            onClick={() => navigateAndScroll('/', 'dashboard-contact-section')}
+            className={getSectionActive('dashboard-contact-section')}
+          >
+            <HiOutlinePhone
+              size={18}
+              strokeWidth={1.5}
+            />
+          </MenuItems>
+        </Tooltip>
         <Menu
-          position="bottom"
+          position="left"
           withArrow
           shadow="md"
           transitionProps={{ transition: 'scale-y' }}
@@ -95,22 +145,28 @@ const Navbar = memo(() => {
           onChange={setDesktopProductsOpen}
         >
           <Menu.Target>
-            <ProductMenuTrigger
-              as="button"
-              role="button"
-              className={isProductsActive ? 'active' : ''}
-              aria-label="Toggle feature menu"
-              aria-haspopup="menu"
-              aria-expanded={desktopProductsOpen}
-              aria-controls="feature-menu"
+            <Tooltip
+              label="Features"
+              position="left"
+              withArrow
+              transitionProps={{ transition: 'fade-left', duration: 300 }}
             >
-              Features
-              {desktopProductsOpen ? (
-                <IoChevronUp style={{ marginLeft: '5px' }} />
-              ) : (
-                <IoChevronDown style={{ marginLeft: '5px' }} />
-              )}
-            </ProductMenuTrigger>
+              <ProductMenuTrigger
+                as="button"
+                role="button"
+                className={isProductsActive ? 'active' : ''}
+                aria-label="Toggle feature menu"
+                aria-haspopup="menu"
+                aria-expanded={desktopProductsOpen}
+                aria-controls="feature-menu"
+              >
+                <MdOutlineKeyboardArrowLeft />
+                <HiOutlineLightBulb
+                  size={20}
+                  strokeWidth={1.5}
+                />
+              </ProductMenuTrigger>
+            </Tooltip>
           </Menu.Target>
           <Menu.Dropdown>
             {featuresLink.map((link) => (
@@ -129,10 +185,6 @@ const Navbar = memo(() => {
         </Menu>
       </MenubarS>
 
-      <SearchInput
-        $showsearch={false}
-        deActiveMenu={() => close()}
-      />
       {/* mobile code */}
       <Popover
         width={300}
@@ -156,10 +208,7 @@ const Navbar = memo(() => {
           />
         </Popover.Target>
         <Popover.Dropdown id="mobile-menu">
-          <SearchInput
-            $showsearch={true}
-            deActiveMenu={() => close()}
-          />
+          <SearchInput />
 
           <MenuListItem
             to="/"

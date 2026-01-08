@@ -171,7 +171,6 @@ const Background = ({
           </Flex>
         )}
         {children}
-        <div style={{ paddingBlock: '20px' }} />
       </Flex>
     </div>
   )

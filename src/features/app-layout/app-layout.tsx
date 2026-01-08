@@ -12,7 +12,7 @@ const Footer = lazy(() =>
 )
 export const AppLayout = () => {
   return (
-    <div>
+    <div style={{ position: 'relative' }}>
       <Navbar />
       <Content />
 

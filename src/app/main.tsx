@@ -14,6 +14,8 @@ import '@mantine/core/styles.css'
 import 'react-tooltip/dist/react-tooltip.css'
 import '@gfazioli/mantine-marquee/styles.css'
 import '@mantine/carousel/styles.css'
+import '@mantine/spotlight/styles.css'
+import '@gfazioli/mantine-text-animate/styles.css'
 
 const container = document.querySelector('#root')
 

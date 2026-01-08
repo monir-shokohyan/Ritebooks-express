@@ -59,12 +59,6 @@ const horWrapper = ({
         w="100%"
         $isSticky={isSticky}
         opacity={0.25}
-        h={{
-          base: 'auto',
-          sm: 'auto',
-          md: 'auto',
-          lg: isBgColor ? '60vh' : fullHeight ? '90vh' : 'auto',
-        }}
         py={paddingBottom}
         gap="5%"
         justify="center"
@@ -104,6 +98,7 @@ const horWrapper = ({
             justify="center"
             align="center"
             pt={$paddingTop}
+            pos="relative"
           >
             {children}
           </Flex>
