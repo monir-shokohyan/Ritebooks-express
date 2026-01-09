@@ -1,3 +1,4 @@
+import React from 'react'
 import { IconType } from 'react-icons'
 import { Flex } from '@mantine/core'
 import styled from 'styled-components'
@@ -5,7 +6,7 @@ import styled from 'styled-components'
 import { SavedColors } from '@shared/constants'
 
 import { Container as ContainerS } from './Container'
-import { TextResponsive, TextWithFamily } from './Typography/Typography'
+import { TextResponsive } from './Typography/Typography'
 
 interface IconWithTextProps {
   icon: IconType
@@ -13,7 +14,15 @@ interface IconWithTextProps {
   textRes?: string
   iconColor?: string
   textColor?: string
-  font?: 'Roboto' | 'Nunito'
+  font?:
+    | 'Roboto'
+    | 'Nunito'
+    | 'Tangerine'
+    | 'Great Vibes'
+    | 'Saira Stencil One'
+    | 'DM Serif Text'
+    | 'Inter'
+    | 'DM Sans'
   handleClick?: () => void
   allowText?: boolean
   allowTextRes?: boolean
@@ -34,6 +43,9 @@ interface IconWithTextProps {
     | '700'
     | '800'
     | '900'
+  Style?: React.CSSProperties
+  isLeft?: boolean
+  align?: 'center' | 'flex-start' | 'flex-end'
 }
 
 const Container = styled.div<{ $hoveractive?: 'false' | 'true' }>`
@@ -55,50 +67,52 @@ const IconWithText = ({
   font = 'Roboto',
   handleClick = () => {},
   allowText = true,
-  allowTextRes = true,
+  allowTextRes = false,
   iconSize = 20,
-  padding = '10px',
   $hoveractive = 'true',
-  fontSize = '18px',
+  fontSize = '16px',
   fontWeight = '300',
   $isActiveIconBg = true,
   $border,
-  $iconContainerSize = 'md',
+  Style,
+  isLeft = true,
 }: IconWithTextProps) => {
-  const ContainerSize = $iconContainerSize === 'sm' ? '30px' : '45px'
   return (
-    <Container $hoveractive={$hoveractive}>
+    <Container
+      $hoveractive={$hoveractive}
+      style={Style}
+    >
       <Flex
-        gap={10}
+        gap={5}
         align="center"
-        style={{ padding }}
+        justify="center"
         onClick={handleClick}
       >
-        <ContainerS
-          h={ContainerSize}
-          w={ContainerSize}
-          justify="center"
-          align="center"
-          $borderRadius="50%"
-          background={$isActiveIconBg ? SavedColors.PrimaryWhite : 'none'}
-          border={$border}
-        >
-          <Icon
-            color={iconColor}
-            size={iconSize}
-            style={{ transition: 'all 0.3s ease-in-out' }}
-          />
-        </ContainerS>
+        {isLeft && (
+          <ContainerS
+            p="10px"
+            $borderRadius="50%"
+            background={$isActiveIconBg ? SavedColors.highlite : 'none'}
+            border={$border}
+          >
+            <Icon
+              color={iconColor}
+              size={iconSize}
+              style={{ transition: 'all 0.3s ease-in-out' }}
+            />
+          </ContainerS>
+        )}
 
         {allowText && (
-          <TextWithFamily
+          <TextResponsive
             $font={font}
             color={textColor}
             fontSize={fontSize}
             fontWeight={fontWeight}
+            style={{ textWrap: 'nowrap' }}
           >
             {text}
-          </TextWithFamily>
+          </TextResponsive>
         )}
         {allowTextRes && (
           <TextResponsive
@@ -109,6 +123,22 @@ const IconWithText = ({
           >
             {textRes}
           </TextResponsive>
+        )}
+        {!isLeft && (
+          <ContainerS
+            p="10px"
+            justify="center"
+            align="center"
+            $borderRadius="50%"
+            background={$isActiveIconBg ? SavedColors.highlite : 'none'}
+            border={$border}
+          >
+            <Icon
+              color={iconColor}
+              size={iconSize}
+              style={{ transition: 'all 0.3s ease-in-out' }}
+            />
+          </ContainerS>
         )}
       </Flex>
     </Container>

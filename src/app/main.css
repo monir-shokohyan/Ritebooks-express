@@ -40,7 +40,7 @@ body {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  background-attachment: fixed;  
-  margin: 0%; 
+  background-attachment: fixed;
+  margin: 0%;
   overflow-x: hidden;
 }

@@ -16,7 +16,6 @@ const horWrapper = ({
   isReverseWrap = false,
   leftWidth = '55%',
   rightWidth = '45%',
-  fullHeight = true,
   isSticky = false,
   desTitle = '',
   title = '',

@@ -1,8 +1,8 @@
 /* eslint-disable sonarjs/no-duplicate-string */
+import React from 'react'
 import { IconType } from 'react-icons'
 import {
   FaBalanceScale,
-  FaBriefcase,
   FaCalculator,
   FaCalendarAlt,
   FaChartLine,
@@ -17,15 +17,19 @@ import {
   FaFingerprint,
   FaGavel,
   FaHistory,
+  FaLaptop,
   FaLock,
   FaMoneyBillAlt,
   FaMoneyBillWave,
   FaPercent,
   FaPercentage,
   FaPhoneAlt,
+  FaRocket,
+  FaStore,
+  FaStoreAlt,
   FaSyncAlt,
   FaTachometerAlt,
-  FaUser,
+  FaTools,
   FaUserCheck,
   FaUserCog,
   FaUserLock,
@@ -68,6 +72,8 @@ export interface SectionType {
   target?: string
   distance?: number
   id?: number
+  style?: React.CSSProperties
+  isLeft?: boolean
 }
 
 interface Feature {
@@ -152,118 +158,98 @@ export const TotalData: TotalDataItem[] = [
       'Built bony.agencyy Lotus Soft Technologies Ltd., the creators of Ritebooks with over 25 years of software expertise, Ritebooks Express gives you exactly what you need to manage your business confidently from day one.',
     target: '/',
     sectionId: 'dashboard-welcome-section',
-    bubbles: [
-      {
-        id: 1,
-        top: '0%',
-        left: '40%',
-        rotate: '-10deg',
-        size: 6,
-        animate: {
-          y: [0, -15, 0],
-          x: [0, 10, 0],
-          rotate: [-10, -5, -10],
-          transition: {
-            duration: 4,
-            repeat: Infinity,
-          },
-        },
-        initial: { opacity: 0, scale: 0 },
-        whileInView: { opacity: 1, scale: 1 },
-        viewport: { once: true },
-        transition: { duration: 1.6, ease: 'backOut' },
-        whileHover: { scale: 1.1 },
-        content: {
-          icon: FaBriefcase,
-          iconColor: SavedColors.red,
-          iconSize: '24px',
-          text: '25+ years of experience',
-          textFontSize: '12px',
-        },
-      },
-      {
-        id: 2,
-        top: '30%',
-        left: '50%',
-        size: 5,
-        animate: {
-          y: [0, -20, 0],
-          x: [0, -8, 0],
-          transition: {
-            duration: 3.5,
-            repeat: Infinity,
-            delay: 0.5,
-          },
-        },
-        initial: { opacity: 0, scale: 0 },
-        whileInView: { opacity: 1, scale: 1 },
-        viewport: { once: true },
-        transition: { duration: 0.6, ease: 'backOut', delay: 0.2 },
-        whileHover: { scale: 1.1 },
-        content: {
-          icon: FaUser,
-          iconColor: SavedColors.violet,
-          iconSize: '20px',
-          text: '1,000+ customers',
-          textFontSize: '11px',
-        },
-      },
+  },
+  {
+    name: 'whyUs',
+    dTitle: '01 ------------- Why Ritebooks Express?',
+    title: 'is built for businesses that want control — not confusion.',
+    target: '/',
+    sectionId: 'dashboard-whyUs-section',
+    imageUrl: '/whyus.svg',
+    description:
+      'Unlike complex ERP systems or limited entry-level tools, Ritebooks Express gives you balanced functionality — powerful enough to run your business, simple enough to use daily.',
+    features: [
+      { name: 'Designed for real-world small businesses' },
+      { name: 'Covers core operations without overload' },
+      { name: 'Easy to learn, easy to use' },
+      { name: 'Affordable pricing with a clear upgrade path' },
+      { name: 'Backed by a trusted local software company' },
     ],
   },
   {
-    name: 'aboutUs',
-    dTitle: 'Want to know more ?',
-    title: 'Read about us',
+    name: 'whoIsFor',
+    dTitle: '02 ------------- Who Is Ritebooks Express For?',
+    title: 'is ideal for:',
     target: '/',
-    sectionId: 'dashboard-aboutUs-section',
-    imageUrl: '/aboutus.svg',
+    sectionId: 'dashboard-whoIsFor-section',
     description:
-      'RitePayroll is a powerful, web-enabled payroll management software designed for small, medium, and large organizations operating across multiple branches and multiple currencies. Built to eliminate manual payroll errors and compliance risks, RitePayroll automates the entire payroll lifecycle — from attendance capture to payslip generation — with precision, security, and flexibility. Whether your organization processes daily wages or monthly salaries, manages complex allowances, statutory deductions, loans, and leave policies, or operates across locations and currencies, RitePayroll gives you total control — all from a single, centralized system.',
-    features: [
-      { name: 'Trusted by 1,000+' },
-      { name: '25+ years of experience' },
-    ],
-  },
-  {
-    name: 'advantage',
-    dTitle: 'Is Your Payroll Process Costing You More Than Money?',
-    title:
-      "Payroll errors don't just affect finances they impact trust, compliance, and productivity",
-    target: '/',
-    sectionId: 'dashboard-advantage-section',
-    imageUrlSet: [
-      { id: 1, url: '/advantage/advantage.svg' },
-      { id: 2, url: '/advantage/calculation.svg' },
-      { id: 3, url: '/advantage/instant.svg' },
-      { id: 4, url: '/advantage/realTime.svg' },
-      { id: 5, url: '/advantage/zeroError.svg' },
-    ],
-    description:
-      'Our automated, end-to-end payroll solution ensures accuracy, compliance, and efficiency - giving you peace of mind and more time to focus on growing your business.',
+      'If your business needs structure without complexity, this is the right starting point.',
     features: [
       {
         id: 1,
-        name: 'Automated Calculations',
-        description:
-          'Say goodbye to time-consuming manual calculations and human errors in salaries, overtime, and allowances.',
+        name: 'Retail Stores',
+        icon: FaStore,
+        style: {
+          position: 'absolute',
+          top: '14%',
+          right: '75%',
+        },
+        isLeft: false,
       },
       {
         id: 2,
-        name: 'Real-time Compliance',
-        description:
-          'RitePayroll automatically applies updated PAYE, NSSF, and tax rules, removing compliance risks and penalties.',
+        name: 'Small Shops',
+        icon: FaStoreAlt,
+        style: {
+          position: 'absolute',
+          top: '48%',
+          right: '75%',
+        },
+        isLeft: false,
       },
       {
         id: 3,
-        name: 'Instant Processing',
-        description:
-          'RitePayroll processes weekly or monthly payroll in minutes, ending delays and ensuring accurate, on-time payments.',
+        name: 'Service Providers',
+        icon: FaTools,
+        style: {
+          position: 'absolute',
+          top: '80%',
+          right: '75%',
+        },
+        isLeft: false,
       },
       {
         id: 4,
-        name: 'Zero Errors',
-        description:
-          'RitePayroll guarantees 100% accurate payslips and reports through full automation and built-in validation.',
+        name: 'Startups',
+        icon: FaRocket,
+        style: {
+          position: 'absolute',
+          top: '14.5%',
+          left: '75%',
+        },
+        isLeft: true,
+      },
+      {
+        id: 5,
+        name: 'Growing Businesses',
+        icon: FaChartLine,
+        style: {
+          position: 'absolute',
+          top: '48.5%',
+          left: '75%',
+        },
+        isLeft: true,
+      },
+      {
+        id: 6,
+        name: 'First-time Software Users',
+        icon: FaLaptop,
+        style: {
+          position: 'absolute',
+          top: '81%',
+          left: '75%',
+        },
+        isLeft: true,
       },
     ],
   },

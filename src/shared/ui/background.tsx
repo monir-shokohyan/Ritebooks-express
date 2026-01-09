@@ -29,7 +29,7 @@ const Background = ({
   return (
     <div
       style={{
-        borderBottom: `1px solid lightgray`,
+        // borderBottom: `1px solid lightgray`,
         position: 'relative',
         paddingInline: `${paddingToTopLayer}`,
       }}

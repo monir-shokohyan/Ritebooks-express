@@ -13,7 +13,6 @@ import {
   TextWithFamily,
 } from '@shared/ui/Typography'
 
-
 const WelcomeText = styled(TextWithFamily)`
   animation: ${fadeIn} 1s ease-out 0.8s both;
   @media (max-width: 1000px) {

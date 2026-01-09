@@ -21,7 +21,7 @@ export const Providers = ({ children }: PropsWithChildren) => {
             allowNestedScroll: true,
           }}
         > */}
-          {children}
+        {children}
         {/* </ReactLenis> */}
       </ThemeProvider>
     </BrowserRouter>

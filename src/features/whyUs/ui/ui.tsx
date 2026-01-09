@@ -2,19 +2,17 @@ import { memo } from 'react'
 import { Flex, Image } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
 
-import { SavedColors } from '@shared/constants'
 import { FindByName } from '@shared/helpers'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
-import { TextWithFamily } from '@shared/ui/Typography'
 
 import { AboutRightSection } from './aboutRightSection'
 
 const Ui = memo(() => {
-  const pageInfo = FindByName('aboutUs')
+  const pageInfo = FindByName('whyUs')
   const isMobile = useMediaQuery('(max-width: 760px)')
 
   return (
-    <div id="dashboard-aboutUs-section">
+    <div id="dashboard-whyUs-section">
       <Wrapper
         isReverseWrap={false}
         fullHeight={false}
@@ -28,9 +26,9 @@ const Ui = memo(() => {
         leftWidth="40%"
         rightWidth="50%"
         activeHead={false}
-        $paddingLeftTop={isMobile ? '80px' : '120px'}
+        $paddingLeftTop={isMobile ? '10px' : '80px'}
         $paddingRightTop={isMobile ? '20px' : '50px'}
-        activeSticker={true}
+        activeSticker={false}
       >
         <Flex
           w="100%"
@@ -40,29 +38,12 @@ const Ui = memo(() => {
           px={20}
           gap={20}
         >
-          <TextWithFamily
-            $font="Roboto"
-            fontWeight="300"
-            fontSize="18px"
-            color={SavedColors.highlite}
-            $textalign="left"
-          >
-            {pageInfo?.dTitle}
-          </TextWithFamily>
-          <TextWithFamily
-            $font="Roboto"
-            fontWeight="500"
-            fontSize="32px"
-            color={SavedColors.TextColor}
-            $textalign="left"
-          >
-            {pageInfo?.title}
-          </TextWithFamily>
           <Image
             src={pageInfo?.imageUrl || '/aboutus.png'}
-            alt="about us image"
-            h={{ base: 200, sm: 200, md: 400, lg: 500 }}
+            alt="why us image"
+            h={{ base: 380, sm: 380, md: 400, lg: 500 }}
             fit="contain"
+            style={{ aspectRatio: '1/1' }}
           />
         </Flex>
       </Wrapper>
