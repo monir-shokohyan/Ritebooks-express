@@ -10,19 +10,23 @@ const NavbarS = styled.nav<{ $isOpen: boolean }>`
   position: fixed;
   display: flex;
   top: 50%;
-  right: ${(props) => (props.$isOpen ? '0px' : '-250px')};
+  right: ${(props) => (props.$isOpen ? '5px' : '-250px')};
   width: ${(props) => (props.$isOpen ? '60px' : '0px')};
   align-items: center;
   justify-content: space-between;
   z-index: 4;
-  background-color: ${SavedColors.highlite};
+  background-color: ${SavedColors.PrimaryWhite};
   transform: translateY(-50%);
   border-radius: 3px 0 0 3px;
   transition:
     right 0.3s ease-in-out,
     width 0.3s ease-in-out;
   overflow: hidden;
-
+  box-shadow:
+    rgba(0, 0, 0, 0.2) 2px 2px 8px,
+    rgba(255, 255, 255, 0.2) -2px -2px 8px,
+    rgba(255, 255, 255, 0.3) 2px 2px 4px inset,
+    rgba(0, 0, 0, 0.3) -2px -2px 4px inset;
   @media (max-width: 1024px) {
     display: none;
   }
@@ -83,8 +87,8 @@ const MenuItems = styled(Link)`
 
   &:hover,
   &.active {
-    color: ${SavedColors.DemWhite};
-    background-color: rgba(255, 255, 255, 0.1);
+    color: ${SavedColors.highlite};
+    background-color: ${SavedColors.highliteOpacityExtreme};
   }
 `
 
@@ -157,7 +161,7 @@ const ProductMenuTrigger = styled.div`
 
   &:hover,
   &.active {
-    color: ${SavedColors.DemWhite};
+    color: ${SavedColors.highlite};
     background-color: rgba(255, 255, 255, 0.1);
   }
 `

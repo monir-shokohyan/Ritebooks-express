@@ -31,6 +31,7 @@ const horWrapper = ({
   paddingBottom = '20px',
   paddingToTopLayer = '0px',
   headTextAlign = 'center',
+  flip = false,
 }: HorWrapperType) => {
   return (
     <Background
@@ -62,6 +63,7 @@ const horWrapper = ({
         gap="5%"
         justify="center"
         align="flex-start"
+        $flip={flip}
       >
         {doubleOption ? (
           <>

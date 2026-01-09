@@ -25,4 +25,5 @@ export interface HorWrapperType {
   paddingBottom?: string
   paddingToTopLayer?: string
   headTextAlign?: 'left' | 'center' | 'right'
+  flip?: boolean
 }

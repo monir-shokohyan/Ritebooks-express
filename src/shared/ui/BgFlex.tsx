@@ -8,6 +8,7 @@ interface BgFlexProps extends FlexProps {
   opacity?: number
   bgc?: string
   $isSticky?: boolean
+  $flip?: boolean
 }
 
 export const BgFlex = styled(Flex)<BgFlexProps>`
@@ -23,12 +24,13 @@ export const BgFlex = styled(Flex)<BgFlexProps>`
     bottom: 0;
     height: 100%;
     background-image: ${({ bg }) => (bg ? `url(${bg})` : 'none')};
-    background-size: contain;
+    background-size: cover;
     background-color: ${({ bgc }) => (bgc ? bgc : 'transparent')};
     background-position: center;
     background-repeat: no-repeat;
     opacity: ${({ opacity = 0.5 }) => opacity};
     z-index: -1;
+    transform: scaleX(${({ $flip }) => ($flip ? -1 : 1)});
   }
 
   & > * {

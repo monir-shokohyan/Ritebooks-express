@@ -5,6 +5,7 @@ import { FeaturesSection } from '@features/featureSection'
 import { GrowthSection } from '@features/growth'
 import { IndustriesSection } from '@features/industriesSection'
 import { WhoIsForSection } from '@features/whoIsFor'
+import { WhyChooseSection } from '@features/whyChoose'
 import { WhyUsSection } from '@features/whyUs'
 
 import { Welcome } from './welcome'
@@ -15,6 +16,7 @@ function Ui() {
       <Welcome />
       <WhyUsSection />
       <WhoIsForSection />
+      <WhyChooseSection />
       <ActionSection />
       <FeaturesSection />
       <GrowthSection />

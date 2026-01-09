@@ -254,6 +254,46 @@ export const TotalData: TotalDataItem[] = [
     ],
   },
   {
+    name: 'whyChoose',
+    dTitle:
+      '03 ------------- Why Choose Ritebooks Express Over Other Software?',
+    title: 'over other software.',
+    target: '/',
+    sectionId: 'dashboard-whyChoose-section',
+    imageUrl: '/whyChoose.svg',
+    features: [
+      {
+        id: 1,
+        name: 'Built by Experts',
+        description:
+          'Developed by Lotus Soft Technologies Ltd., with over 25 years of experience in business software solutions.',
+      },
+      {
+        id: 2,
+        name: 'Budget-Friendly',
+        description:
+          'Pay only for what you need — no unnecessary modules, no hidden costs.',
+      },
+      {
+        id: 3,
+        name: 'User-Friendly',
+        description: 'Clean interface that requires minimal training.',
+      },
+      {
+        id: 4,
+        name: 'Compliance Ready',
+        description:
+          'Designed keeping local tax and compliance needs in mind, including integration readiness for URA EFRIS.',
+      },
+      {
+        id: 5,
+        name: 'Seamless Upgrade Path',
+        description:
+          'Start with Ritebooks Express today and upgrade anytime to the full Ritebooks version as your business grows — without losing data or familiarity.',
+      },
+    ],
+  },
+  {
     name: 'action',
     dTitle: ' What RitePayroll Does ?',
     title:

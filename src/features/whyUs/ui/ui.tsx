@@ -22,6 +22,7 @@ const Ui = memo(() => {
             isMobile={isMobile}
           />
         }
+        bgImage="/bgSep.svg"
         RSJustify="center"
         leftWidth="40%"
         rightWidth="50%"

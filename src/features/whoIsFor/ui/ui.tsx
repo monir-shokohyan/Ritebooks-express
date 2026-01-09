@@ -7,6 +7,7 @@ import { useMediaQuery } from '@mantine/hooks'
 
 import { SavedColors } from '@shared/constants'
 import { FindByName } from '@shared/helpers'
+import { Ripple } from '@shared/ui/AnimatedBg'
 import { CTC } from '@shared/ui/CTC'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
 import { IconWithText } from '@shared/ui/IconWithText'
@@ -35,12 +36,22 @@ const Ui = memo(() => {
           gap={20}
         >
           {isMobile && (
-            <Image
-              src="/whoIsForOrdinary.svg"
-              w="100%"
-              h="100%"
-              fit="contain"
-            />
+            <div style={{ position: 'relative' }}>
+              <Image
+                src="/whoIsForWL.svg"
+                w="100%"
+                h="100%"
+                fit="contain"
+              />
+              <Ripple
+                position="absolute"
+                top="50%"
+                left="50%"
+                translate="-50%, -50%"
+                zIndex={-1}
+                size="23rem"
+              />
+            </div>
           )}
           <TextWithFamily
             $font="DM Sans"
@@ -69,10 +80,18 @@ const Ui = memo(() => {
               pos="relative"
             >
               <Image
-                src="/whoIsForLine.svg"
+                src="/whoIsForwithout.svg"
                 w="100%"
                 h="100%"
                 fit="contain"
+              />
+              <Ripple
+                position="absolute"
+                top="50%"
+                left="50%"
+                translate="-50%, -50%"
+                zIndex={-1}
+                size="40rem"
               />
               {pageInfo?.features?.map((feature) => {
                 const Icon = feature.icon as IconType
@@ -88,6 +107,7 @@ const Ui = memo(() => {
                     font="Inter"
                     align="flex-end"
                     fontSize="14px"
+                    fontWeight="500"
                   />
                 )
               })}

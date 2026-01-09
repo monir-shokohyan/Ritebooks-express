@@ -7,6 +7,7 @@ export const enum SavedColors {
   CursorHighlite = '91, 193, 66',
   highlite = '#5bc142',
   highliteOpacity = '#5bc14289',
+  highliteOpacityExtreme = '#5bc1420f',
   primaryBlue = '#012970',
   primaryBlueRGB = '1, 41, 112',
   primaryGreenRGB = '161, 204, 58',
