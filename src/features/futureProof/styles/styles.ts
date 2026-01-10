@@ -7,7 +7,7 @@ export const StyledCard = styled(Card)<CardProps & { onClick?: () => void }>`
   transition: all 0.3s ease;
   width: 20%;
   aspect-ratio: 1 / 1;
-  min-width: 190px;
+  min-width: 170px;
   box-shadow:
     0 0.706592px 0.706592px -0.666667px #00000014,
     0 1.80656px 1.80656px -1.33333px #00000014,

@@ -87,7 +87,7 @@ const TextResponsive = styled.h1<StyledTextProps>`
 
     return `
       // Mobile (base)
-      font-size: ${baseSize * 0.6}${unit};
+      font-size: ${baseSize * 0.8}${unit};
       
       // Small tablets
       @media (min-width: 480px) {

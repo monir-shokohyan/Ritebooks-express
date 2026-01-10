@@ -88,7 +88,8 @@ const Ui = memo(() => {
                         paddingInline: isTablet ? '0%' : '9%',
                       }}
                       $font="DM Serif Text"
-                      fontSize="22px"
+                      // eslint-disable-next-line sonarjs/no-all-duplicated-branches
+                      fontSize={isTablet ? '18px' : '22px'}
                       fontWeight="500"
                     >
                       {feature.name}
