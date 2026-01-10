@@ -1,10 +1,8 @@
-import { IconType } from 'react-icons'
+import { ReactNode } from 'react'
 
 export interface CardProps {
-  title: string
-  description: string
-  number: number
-  iconColor?: string
-  Icon: IconType
-  IconSize?: number
+  text: string
+  id?: number
+  headerIcon: ReactNode
+  footerIcon: ReactNode
 }

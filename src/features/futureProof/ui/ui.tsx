@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-pascal-case */
 import { memo } from 'react'
 import { IconType } from 'react-icons'
 import { Flex } from '@mantine/core'
@@ -6,18 +5,15 @@ import { useMediaQuery } from '@mantine/hooks'
 
 import { SavedColors } from '@shared/constants'
 import { FindByName } from '@shared/helpers'
-import { CTC } from '@shared/ui/CTC'
+import { Ctc } from '@shared/ui/CTC'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
 import { TextResponsive, TextWithFamily } from '@shared/ui/Typography'
 
-import { StyledCard } from '../styles'
-import { CardBottom } from './CardBottom'
-import { CardHeader } from './CardHeader'
+import { Card } from './Card'
 
 const Ui = memo(() => {
   const pageInfo = FindByName('futureProof')
   const isMobile = useMediaQuery('(max-width: 760px)')
-  const isTablet = useMediaQuery('(max-width: 1140px)')
 
   return (
     <div id="dashboard-futureProof-section">
@@ -25,8 +21,9 @@ const Ui = memo(() => {
         isReverseWrap={false}
         fullHeight={false}
         activeHead={false}
-        $paddingTop={isMobile ? '20px' : '80px'}
+        paddingBottom={isMobile ? '20px' : '80px'}
         doubleOption={false}
+        isBackground={true}
       >
         <Flex
           w="100%"
@@ -53,7 +50,7 @@ const Ui = memo(() => {
             color={SavedColors.TextColor}
             $textalign={isMobile ? 'left' : 'center'}
           >
-            <CTC text="Ritebooks Express " />
+            <Ctc text="Ritebooks Express " />
             {pageInfo?.title}
           </TextResponsive>
           <Flex
@@ -66,52 +63,31 @@ const Ui = memo(() => {
             {pageInfo?.features?.map((feature) => {
               const Icon = feature.icon as IconType
               return (
-                <StyledCard
-                  key={feature.name}
-                  bg={SavedColors.SemiDarkWhite}
-                  p="md"
-                >
-                  <CardHeader>
+                <Card
+                  key={feature.id}
+                  text={feature.name}
+                  id={feature.id}
+                  headerIcon={
                     <Icon
                       size={24}
                       color={SavedColors.highlite}
                     />
-                  </CardHeader>
-                  <Flex
-                    w="100%"
-                    justify="center"
-                    align="center"
-                  >
-                    <TextResponsive
-                      $textalign="center"
+                  }
+                  footerIcon={
+                    <Icon
+                      size="60%"
                       style={{
-                        paddingInline: isTablet ? '0%' : '9%',
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%,-50%)',
+                        zIndex: -1,
+                        opacity: 0.07,
                       }}
-                      $font="DM Serif Text"
-                      // eslint-disable-next-line sonarjs/no-all-duplicated-branches
-                      fontSize={isTablet ? '18px' : '22px'}
-                      fontWeight="500"
-                    >
-                      {feature.name}
-                    </TextResponsive>
-                  </Flex>
-                  <CardBottom
-                    id={feature.id}
-                    isMobile={isMobile}
-                  />
-                  <Icon
-                    size="60%"
-                    style={{
-                      position: 'absolute',
-                      top: '50%',
-                      left: '50%',
-                      transform: 'translate(-50%,-50%)',
-                      zIndex: -1,
-                      opacity: 0.07,
-                    }}
-                    color={SavedColors.highlite}
-                  />
-                </StyledCard>
+                      color={SavedColors.highlite}
+                    />
+                  }
+                />
               )
             })}
           </Flex>

@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-pascal-case */
 import { memo } from 'react'
 import { IconType } from 'react-icons'
 import { FaRegCircleDot } from 'react-icons/fa6'
@@ -8,7 +7,7 @@ import { useMediaQuery } from '@mantine/hooks'
 import { SavedColors } from '@shared/constants'
 import { FindByName } from '@shared/helpers'
 import { Ripple } from '@shared/ui/AnimatedBg'
-import { CTC } from '@shared/ui/CTC'
+import { Ctc } from '@shared/ui/CTC'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
 import { IconWithText } from '@shared/ui/IconWithText'
 import { TextResponsive, TextWithFamily } from '@shared/ui/Typography'
@@ -69,7 +68,7 @@ const Ui = memo(() => {
             color={SavedColors.TextColor}
             $textalign={isMobile ? 'left' : 'center'}
           >
-            <CTC text="Ritebooks Express " />
+            <Ctc text="Ritebooks Express " />
             {pageInfo?.title}
           </TextResponsive>
 

@@ -32,6 +32,7 @@ const horWrapper = ({
   paddingToTopLayer = '0px',
   headTextAlign = 'center',
   flip = false,
+  isBackground,
 }: HorWrapperType) => {
   return (
     <Background
@@ -42,6 +43,7 @@ const horWrapper = ({
       secondSticker={secondSticker}
       paddingToTopLayer={paddingToTopLayer}
       headTextAlign={headTextAlign}
+      isBackground={isBackground}
     >
       {bgWave && (
         <HeroWaves

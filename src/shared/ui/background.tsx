@@ -15,6 +15,7 @@ const Background = ({
   secondSticker = false,
   paddingToTopLayer = '0px',
   headTextAlign = 'center',
+  isBackground = false,
 }: {
   children: ReactNode
   desTitle: string
@@ -24,6 +25,7 @@ const Background = ({
   secondSticker?: boolean
   paddingToTopLayer?: string
   headTextAlign?: 'left' | 'center' | 'right'
+  isBackground?: boolean
 }) => {
   const isMobile = useMediaQuery('(max-width: 760px)')
   return (
@@ -32,6 +34,9 @@ const Background = ({
         // borderBottom: `1px solid lightgray`,
         position: 'relative',
         paddingInline: `${paddingToTopLayer}`,
+        background: isBackground
+          ? `${SavedColors.SemiDarkWhite}`
+          : 'transparent',
       }}
     >
       <Flex

@@ -44,7 +44,7 @@ const SimpleColorText = styled.span<StyledTextProps>`
   color: ${SavedColors.highlite};
 `
 
-const CTC = ({ text, as = 'span', to }: CTCProps) => {
+const Ctc = ({ text, as = 'span', to }: CTCProps) => {
   if (as === 'a' && to) {
     return <LinkStyle to={to}>{text}</LinkStyle>
   }
@@ -52,4 +52,4 @@ const CTC = ({ text, as = 'span', to }: CTCProps) => {
   return <SimpleColorText>{text}</SimpleColorText>
 }
 
-export { CTC }
+export { Ctc }

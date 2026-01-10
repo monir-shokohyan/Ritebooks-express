@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-pascal-case */
 import { FaCalendarAlt, FaDownload } from 'react-icons/fa'
 import { Button, Image } from '@mantine/core'
 
@@ -6,7 +5,7 @@ import { SavedColors } from '@shared/constants'
 import { FindByName } from '@shared/helpers/findByName'
 import { useNavigationScroll } from '@shared/hooks/useNavigationScroll'
 import { Container } from '@shared/ui/Container'
-import { CTC } from '@shared/ui/CTC'
+import { Ctc } from '@shared/ui/CTC'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
 import { TextWithFamily, TitleWithFamily } from '@shared/ui/Typography'
 
@@ -42,7 +41,7 @@ const FeatureWelcome = ({ page }: { page: ProductsType }) => {
           fontSize="30px"
           $textalign="left"
         >
-          <CTC text=" RitePayroll " /> Feature
+          <Ctc text=" RitePayroll " /> Feature
         </TitleWithFamily>
         <WelcomeTitle
           $font="Roboto"

@@ -1,9 +1,8 @@
-/* eslint-disable react/jsx-pascal-case */
 import { ActionIcon, Flex } from '@mantine/core'
 
 import { SavedColors } from '@shared/constants'
 import { TotalDataItem } from '@shared/constants/allTexts'
-import { CTC } from '@shared/ui/CTC'
+import { Ctc } from '@shared/ui/CTC'
 import { TextResponsive, TextWithFamily } from '@shared/ui/Typography'
 
 const AboutLeftSection = ({
@@ -41,7 +40,7 @@ const AboutLeftSection = ({
         $textalign="left"
       >
         Here are the key reasons businesses choose
-        <CTC text=" Ritebooks Express " />
+        <Ctc text=" Ritebooks Express " />
         {pageInfo?.title}
       </TextResponsive>
       <Flex

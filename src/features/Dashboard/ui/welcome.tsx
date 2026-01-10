@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-pascal-case */
 import { memo } from 'react'
 import {
   FaArrowLeft,
@@ -14,7 +13,7 @@ import { SavedColors } from '@shared/constants'
 import { FindByName } from '@shared/helpers/findByName'
 import { useNavigationScroll } from '@shared/hooks/useNavigationScroll'
 import { Container } from '@shared/ui/Container'
-import { CTC } from '@shared/ui/CTC'
+import { Ctc } from '@shared/ui/CTC'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
 import { Logo } from '@shared/ui/Logo'
 import { SearchInput } from '@shared/ui/searchInput/searchInput'
@@ -54,7 +53,7 @@ const Welcome = memo(() => {
             $textalign="center"
           >
             Welcome to the
-            <CTC text=" RiteBooks Express " />
+            <Ctc text=" RiteBooks Express " />
           </TitleWithFamily>
           <WelcomeTitle
             $font="DM Sans"
