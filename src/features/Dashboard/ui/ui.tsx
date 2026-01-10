@@ -1,7 +1,7 @@
-import { ActionSection } from '@features/actionSection'
 import { BenefitsSection } from '@features/benefits'
 import { ContactUsSection } from '@features/contactUs'
 import { FeaturesSection } from '@features/featureSection'
+import { FutureProofSection } from '@features/futureProof'
 import { GrowthSection } from '@features/growth'
 import { IndustriesSection } from '@features/industriesSection'
 import { WhoIsForSection } from '@features/whoIsFor'
@@ -17,7 +17,7 @@ function Ui() {
       <WhyUsSection />
       <WhoIsForSection />
       <WhyChooseSection />
-      <ActionSection />
+      <FutureProofSection />
       <FeaturesSection />
       <GrowthSection />
       <IndustriesSection />

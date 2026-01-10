@@ -21,7 +21,6 @@ import {
   FaLock,
   FaMoneyBillAlt,
   FaMoneyBillWave,
-  FaPercent,
   FaPercentage,
   FaPhoneAlt,
   FaRocket,
@@ -30,13 +29,14 @@ import {
   FaSyncAlt,
   FaTachometerAlt,
   FaTools,
+  FaUnlock,
   FaUserCheck,
   FaUserCog,
   FaUserLock,
 } from 'react-icons/fa'
 import { FaLocationDot } from 'react-icons/fa6'
-import { LuFileClock, LuFileText, LuGlobe } from 'react-icons/lu'
-import { MdCalendarViewMonth, MdEmail } from 'react-icons/md'
+import { LuBuilding2, LuGlobe, LuReceiptText } from 'react-icons/lu'
+import { MdBarChart, MdEmail } from 'react-icons/md'
 import { MotionProps } from 'framer-motion'
 
 import { Paths } from '@shared/api/paths'
@@ -294,47 +294,44 @@ export const TotalData: TotalDataItem[] = [
     ],
   },
   {
-    name: 'action',
-    dTitle: ' What RitePayroll Does ?',
-    title:
-      ' RitePayroll is a centralized payroll management software designed to automate weekly and monthly payroll processing.',
+    name: 'futureProof',
+    dTitle: '04 ------------- Future-Proof Your Business',
+    title: 'grows with you. When you’re ready:',
+    description:
+      'Your business will not stay small forever — and your software shouldn’t hold you back.',
+
+    descriptionSecond:
+      'All within the Ritebooks ecosystem, built by the same trusted team',
     target: '/',
-    sectionId: 'dashboard-action-section',
+    sectionId: 'dashboard-futureProof-section',
     features: [
       {
         id: 1,
-        name: 'Salary calculation based on attendance',
-        ariaLabel: 'Salary calculation based on attendance',
+        name: 'Move to advanced accounting',
+        ariaLabel: 'Move to advanced accounting',
         isActive: true,
-        icon: LuFileClock,
+        icon: LuReceiptText,
       },
       {
         id: 2,
-        name: 'Allowances, deductions, loans, and advances',
-        ariaLabel: 'Allowances, deductions, loans, and advances',
+        name: 'Enable more reporting',
+        ariaLabel: 'Enable more reporting',
         isActive: true,
-        icon: FaDollarSign,
+        icon: MdBarChart,
       },
       {
         id: 3,
-        name: 'Leave management and encashments',
-        ariaLabel: 'Leave management and encashments',
+        name: 'Add multi-branch capabilities',
+        ariaLabel: 'Add multi-branch capabilities',
         isActive: true,
-        icon: MdCalendarViewMonth,
+        icon: LuBuilding2,
       },
       {
         id: 4,
-        name: 'PAYE, NSSF, and statutory deductions',
-        ariaLabel: 'PAYE, NSSF, and statutory deductions',
+        name: 'Unlock advanced business modules',
+        ariaLabel: 'Unlock advanced business modules',
         isActive: true,
-        icon: FaPercent,
-      },
-      {
-        id: 5,
-        name: 'Payslips, payroll registers, and compliance reports',
-        ariaLabel: 'Payslips, payroll registers, and compliance reports',
-        isActive: true,
-        icon: LuFileText,
+        icon: FaUnlock,
       },
     ],
   },
