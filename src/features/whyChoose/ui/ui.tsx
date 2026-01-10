@@ -22,6 +22,7 @@ const Ui = memo(() => {
         rightWidth="50%"
         $paddingLeftTop={isMobile ? '10px' : '20px'}
         $paddingRightTop={isMobile ? '20px' : '90px'}
+        paddingBottom={isMobile ? '20px' : '90px'}
         doubleOption
       >
         <AboutLeftSection
