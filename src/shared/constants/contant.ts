@@ -23,4 +23,5 @@ export const enum SavedColors {
   PlusFeature = '#F3E8E6',
   Ultimate = '#007279',
   UltimateFeature = '#DEECED',
+  black = '#000',
 }

@@ -12,11 +12,12 @@ import { TextResponsive, TextWithFamily } from '@shared/ui/Typography'
 import { Card } from './Card'
 
 const Ui = memo(() => {
-  const pageInfo = FindByName('futureProof')
+  const pageInfo = FindByName('feature')
   const isMobile = useMediaQuery('(max-width: 760px)')
+  const isTablet = useMediaQuery('(max-width: 1140px)')
 
   return (
-    <div id="dashboard-futureProof-section">
+    <div id="dashboard-feature-section">
       <Wrapper
         isReverseWrap={false}
         fullHeight={false}
@@ -67,11 +68,22 @@ const Ui = memo(() => {
                   key={feature.id}
                   text={feature.name}
                   id={feature.id}
+                  textResponsive={false}
+                  description={feature.description}
+                  isButton
                   headerIcon={
-                    <Icon
-                      size={24}
+                    <TextResponsive
+                      $textalign="center"
+                      style={{
+                        paddingInline: isTablet ? '0%' : '9%',
+                      }}
+                      $font="DM Serif Text"
+                      fontSize={isTablet ? '18px' : '22px'}
+                      fontWeight="500"
                       color={SavedColors.black}
-                    />
+                    >
+                      0{feature.id}
+                    </TextResponsive>
                   }
                   footerIcon={
                     <Icon

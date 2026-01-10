@@ -20,8 +20,8 @@ const Ui = memo(() => {
         bgImage="/bgSepStraight.svg"
         leftWidth="40%"
         rightWidth="50%"
-        $paddingLeftTop={isMobile ? '10px' : '20px'}
-        $paddingRightTop={isMobile ? '20px' : '90px'}
+        $paddingLeftTop={isMobile ? '10px' : '0px'}
+        $paddingRightTop={isMobile ? '20px' : '70px'}
         paddingBottom={isMobile ? '20px' : '90px'}
         doubleOption
       >
