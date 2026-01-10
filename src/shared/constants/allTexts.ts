@@ -35,8 +35,9 @@ import {
   FaUserLock,
 } from 'react-icons/fa'
 import { FaLocationDot } from 'react-icons/fa6'
+import { IoBarChart } from 'react-icons/io5'
 import { LuBuilding2, LuGlobe, LuReceiptText } from 'react-icons/lu'
-import { MdBarChart, MdEmail } from 'react-icons/md'
+import { MdEmail } from 'react-icons/md'
 import { MotionProps } from 'framer-motion'
 
 import { Paths } from '@shared/api/paths'
@@ -317,7 +318,7 @@ export const TotalData: TotalDataItem[] = [
         name: 'Enable more reporting',
         ariaLabel: 'Enable more reporting',
         isActive: true,
-        icon: MdBarChart,
+        icon: IoBarChart,
       },
       {
         id: 3,
