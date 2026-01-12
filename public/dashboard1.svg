@@ -3,7 +3,7 @@
 		.s0 { fill: #f2f2f2 } 
 		.s1 { fill: #ffffff } 
 		.s2 { fill: #cccccc } 
-		.s3 { fill: #6c63ff } 
+		.s3 { fill: rgb(244, 161, 0) } 
 		.s4 { fill: #ffb9b9 } 
 		.s5 { fill: #090814 } 
 		.s6 { opacity: .1;fill: #000000 } 

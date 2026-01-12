@@ -62,7 +62,7 @@ const FeatureRightSection = ({ page }: { page: ProductsType }) => {
         <Button
           radius={10}
           leftSection={<FaCalendarAlt />}
-          size="sm"
+          size="md"
           w={{ base: '100%', sm: 'auto', md: 'auto', lg: 'auto' }}
           color={SavedColors.DemWhite}
           onClick={() => navigateAndScroll('/', 'dashboard-contact-section')}
@@ -74,7 +74,7 @@ const FeatureRightSection = ({ page }: { page: ProductsType }) => {
         <Button
           component="a"
           radius={10}
-          size="sm"
+          size="md"
           leftSection={<FaDownload />}
           w={{ base: '100%', sm: 'auto', md: 'auto', lg: 'auto' }}
           variant="outline"

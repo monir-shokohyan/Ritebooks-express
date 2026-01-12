@@ -66,7 +66,7 @@ const Card = ({
             fontSize="12px"
             style={{ paddingBottom: isMobile ? '20px' : '0px' }}
           >
-            {description}
+            {isMobile ? description.slice(0, 45) + '...' : description}
           </TextWithFamily>
         )}
       </Flex>

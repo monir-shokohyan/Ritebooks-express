@@ -88,7 +88,7 @@ const Ui = memo(() => {
                   }
                   footerIcon={
                     <Icon
-                      size="60%"
+                      size="30%"
                       style={{
                         position: 'absolute',
                         top: '50%',

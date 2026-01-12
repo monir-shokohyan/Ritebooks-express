@@ -100,7 +100,7 @@ const Welcome = memo(() => {
             <Button
               radius={10}
               leftSection={<FaCalendarAlt />}
-              size="sm"
+              size="md"
               w={{ base: '100%', sm: 'auto', md: 'auto', lg: 'auto' }}
               color={SavedColors.DemWhite}
               onClick={() =>
@@ -114,7 +114,7 @@ const Welcome = memo(() => {
             <Button
               component="a"
               radius={10}
-              size="sm"
+              size="md"
               leftSection={<FaDownload />}
               w={{ base: '100%', sm: 'auto', md: 'auto', lg: 'auto' }}
               variant="outline"
