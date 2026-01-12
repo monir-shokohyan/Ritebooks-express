@@ -65,8 +65,8 @@ const Navbar = memo(() => {
         >
           <MenuItems
             to="/"
-            onClick={() => navigateAndScroll('/', 'dashboard-aboutUs-section')}
-            className={getSectionActive('dashboard-aboutUs-section')}
+            onClick={() => navigateAndScroll('/', 'dashboard-whyUs-section')}
+            className={getSectionActive('dashboard-whyUs-section')}
           >
             <HiOutlineInformationCircle
               size={18}
@@ -83,10 +83,8 @@ const Navbar = memo(() => {
         >
           <MenuItems
             to="/"
-            onClick={() =>
-              navigateAndScroll('/', 'dashboard-industries-section')
-            }
-            className={getSectionActive('dashboard-industries-section')}
+            onClick={() => navigateAndScroll('/', 'dashboard-whoIsFor-section')}
+            className={getSectionActive('dashboard-whoIsFor-section')}
           >
             <HiOutlineShoppingBag
               size={18}
@@ -102,8 +100,10 @@ const Navbar = memo(() => {
         >
           <MenuItems
             to="/"
-            onClick={() => navigateAndScroll('/', 'dashboard-benefits-section')}
-            className={getSectionActive('dashboard-benefits-section')}
+            onClick={() =>
+              navigateAndScroll('/', 'dashboard-whyChoose-section')
+            }
+            className={getSectionActive('dashboard-whyChoose-section')}
           >
             <IoTrophyOutline
               size={18}
