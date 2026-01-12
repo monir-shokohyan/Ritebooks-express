@@ -18,9 +18,9 @@ const Ui = () => {
       <AnimatePresence>
         {isOpen && (
           <BackgroundCircle
-            initial={{ scale: 0.1, opacity: 0 }}
+            initial={{ scale: 0.1, opacity: 0.01 }}
             animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.1, opacity: 0 }}
+            exit={{ scale: 0.1, opacity: 0.01 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
           />
         )}

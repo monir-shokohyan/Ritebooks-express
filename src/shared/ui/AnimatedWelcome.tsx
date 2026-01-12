@@ -23,7 +23,7 @@ interface BarProps {
 const growBar = keyframes`
   0% {
     transform: scaleY(0);
-    opacity: 0;
+    opacity: 0.01;
   }
   100% {
     transform: scaleY(1);
@@ -58,7 +58,7 @@ const Bar = styled.div<BarProps>`
   background: ${SavedColors.highlite};
   transform-origin: bottom;
   transform: scaleY(0);
-  opacity: 0;
+  opacity: 0.01;
   position: relative;
 
   ${(props) =>
