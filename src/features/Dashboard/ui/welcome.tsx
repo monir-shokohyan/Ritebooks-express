@@ -17,11 +17,7 @@ import { Ctc } from '@shared/ui/CTC'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
 import { Logo } from '@shared/ui/Logo'
 import { SearchInput } from '@shared/ui/searchInput/searchInput'
-import {
-  TextResponsive,
-  TextWithFamily,
-  TitleWithFamily,
-} from '@shared/ui/Typography'
+import { TextResponsive, TitleWithFamily } from '@shared/ui/Typography'
 
 import { WelcomeTitle } from '../styles/styles'
 import { WelcomeFeature } from './welcomeFeature'
@@ -84,12 +80,12 @@ const Welcome = memo(() => {
               </TextResponsive>
             </Carousel.Slide>
             <Carousel.Slide>
-              <TextWithFamily
+              <TextResponsive
                 $font="Inter"
                 $textalign="center"
               >
                 {pageInfo?.descriptionSecond}
-              </TextWithFamily>
+              </TextResponsive>
             </Carousel.Slide>
           </Carousel>
 
