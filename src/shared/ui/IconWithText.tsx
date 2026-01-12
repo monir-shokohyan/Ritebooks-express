@@ -50,6 +50,9 @@ interface IconWithTextProps {
 
 const Container = styled.div<{ $hoveractive?: 'false' | 'true' }>`
   transition: transform 0.3s ease-in;
+  box-shadow: rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  padding: 5px 10px;
+  border-radius: 10px;
   &:hover {
     cursor: ${({ $hoveractive }) =>
       $hoveractive === 'true' ? 'pointer' : 'default'};
