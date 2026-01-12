@@ -10,7 +10,7 @@ export const StyledCard = styled(Card)<
   width: 20%;
   aspect-ratio: ${({ isFixedHeight = false }) =>
     isFixedHeight ? '1 / 1' : '3 / 4'};
-  min-width: 205px;
+  min-width: 170px;
   box-shadow:
     0 0.706592px 0.706592px -0.666667px #00000014,
     0 1.80656px 1.80656px -1.33333px #00000014,

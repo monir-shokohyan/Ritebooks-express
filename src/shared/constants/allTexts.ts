@@ -361,10 +361,9 @@ export const TotalData: TotalDataItem[] = [
     features: [
       {
         id: 1,
-        name: 'Simplified Accounting – Gain Control of Your Finances',
+        name: 'Simplified Accounting',
         ariaLabel: 'Simplified Accounting – Gain Control of Your Finances',
-        description:
-          'Ritebooks Express helps you track and manage your finances accurately without needing accounting expertise.',
+        description: 'Ritebooks Express helps you track and manage your ...',
         description1:
           'Get a clear view of your income, expenses, and business performance — anytime.',
         isActive: true,
@@ -382,10 +381,9 @@ export const TotalData: TotalDataItem[] = [
       },
       {
         id: 2,
-        name: 'Inventory Management – Stay Ahead of Stock',
+        name: 'Inventory Management',
         ariaLabel: 'Inventory Management – Stay Ahead of Stock',
-        description:
-          'Never lose track of your stock again with real-time inventory tracking designed for small businesses.',
+        description: 'Never lose track of your stock again with real-time ...',
         description1:
           'Know exactly what you have in stock, what’s selling, and when to reorder — all in one place.',
         isActive: true,
@@ -403,10 +401,9 @@ export const TotalData: TotalDataItem[] = [
       },
       {
         id: 3,
-        name: 'Point of Sale (POS) – Fast & Efficient Billing',
+        name: 'Point of Sale (POS)',
         ariaLabel: 'Point of Sale – Fast & Efficient Billing',
-        description:
-          'Speed up sales and improve customer experience with a clean, simple, and reliable POS system.',
+        description: 'Speed up sales and improve customer experience with ...',
         description1:
           'Perfect for retail counters, cafes, small shops, and service businesses that need quick billing.',
         isActive: true,
@@ -425,10 +422,9 @@ export const TotalData: TotalDataItem[] = [
       },
       {
         id: 4,
-        name: 'Essential Business Reporting – Make Smarter Decisions',
+        name: 'Essential Business Reporting',
         ariaLabel: 'Essential Business Reporting – Make Smarter Decisions',
-        description:
-          'Access clear, meaningful, and easy-to-understand reports to really understand your business performance.',
+        description: 'Access clear, meaningful, and easy-to-understand ...',
         description1:
           'All important insights in one place — designed for business owners, not just accountants.',
         isActive: true,

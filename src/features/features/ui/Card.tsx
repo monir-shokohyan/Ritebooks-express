@@ -64,6 +64,7 @@ const Card = ({
             $font="Inter"
             fontWeight="400"
             fontSize="12px"
+            style={{ paddingBottom: isMobile ? '20px' : '0px' }}
           >
             {description}
           </TextWithFamily>
