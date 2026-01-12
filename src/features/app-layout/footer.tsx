@@ -7,7 +7,7 @@ import { SavedColors } from '@shared/constants'
 import { ImportantInfo } from '@shared/constants/companyInfo'
 import { IconWithText } from '@shared/ui/IconWithText'
 import { Logo } from '@shared/ui/Logo'
-import { TextWithFamily } from '@shared/ui/Typography'
+import { TextResponsive } from '@shared/ui/Typography'
 
 import { FooterContainer } from './styles'
 
@@ -65,7 +65,7 @@ const Footer = memo(() => {
           $isActiveIconBg={false}
         />
       </Flex>
-      <TextWithFamily
+      <TextResponsive
         $textalign="center"
         color={SavedColors.DarkWhite}
         fontSize="1rem"
@@ -73,7 +73,7 @@ const Footer = memo(() => {
         width="300px"
       >
         © Copyright RitePayroll. All right reserved.
-      </TextWithFamily>
+      </TextResponsive>
     </FooterContainer>
   )
 })
