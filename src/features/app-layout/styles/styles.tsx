@@ -268,6 +268,9 @@ const FooterContainer = styled.footer`
     position: relative;
     z-index: 3;
   }
+  @media (max-width: 1024px) {
+    padding-bottom: 14vh;
+  }
 `
 
 const FooterFirstContainer = styled(Flex)<FlexProps>`

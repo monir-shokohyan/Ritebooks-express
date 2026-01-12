@@ -5,7 +5,7 @@ const Logo = () => {
     <Image
       src="/RITEBOOKS EXPRESS.png"
       alt="RitePayroll logo"
-      w={{ base: '150', lg: '250px' }}
+      w={{ base: '150', lg: '200px' }}
       h={{ base: '60px', lg: 'auto' }}
       fit="contain"
       loading="lazy"
