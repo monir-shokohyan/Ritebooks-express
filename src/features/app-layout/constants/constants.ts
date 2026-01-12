@@ -1,25 +1,17 @@
 import { Paths } from '@shared/api/paths'
+import { Features } from '@shared/constants/featuresMap'
 
 export const featuresLink = [
-  { to: Paths.AccurateSalaryProcessing, label: 'Accurate Salary Processing' },
+  { to: Paths.SimplifiedAccounting, label: Features.SimplifiedAccounting },
   {
-    to: Paths.AttendanceBiometricIntegration,
+    to: Paths.InventoryManagement,
     label: 'Attendance Biometric Integration',
   },
   {
-    to: Paths.LeaveManagementSystem,
+    to: Paths.PointOfSale,
     label: ' Leave Management System',
   },
-  { to: Paths.LoansAdvancesManagement, label: 'Loans Advances Management' },
-  { to: Paths.PayslipsPayrollRegisters, label: 'Payslips Payroll Registers' },
-  {
-    to: Paths.StatutoryComplianceAutomation,
-    label: 'Statutory Compliance Automation',
-  },
-  {
-    to: Paths.WeeklyMonthlyPayrollCycles,
-    label: 'Weekly Monthly Payroll Cycles',
-  },
+  { to: Paths.EssentialBusinessReporting, label: 'Loans Advances Management' },
 ]
 
 export const NavigationLinks = [

@@ -2,17 +2,16 @@ import { IconType } from 'react-icons'
 import { Flex } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
 
-import { StyledCard } from '@features/industriesSection/styles'
+import { Card } from '@features/futureProof/ui/Card'
 import { SavedColors } from '@shared/constants'
 import { FindByName } from '@shared/helpers/findByName'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
-import { RadialHoverEffect } from '@shared/ui/ripple'
-import { TextResponsive } from '@shared/ui/Typography'
+import { TextResponsive, TextWithFamily } from '@shared/ui/Typography'
 
 import { ProductsType } from '../types'
 
 const FeatureInfo = ({ page }: { page: ProductsType }) => {
-  const product = FindByName(page)
+  const pageInfo = FindByName(page)
   const isMobile = useMediaQuery('(max-width: 760px)')
 
   return (
@@ -20,67 +19,90 @@ const FeatureInfo = ({ page }: { page: ProductsType }) => {
       <Wrapper
         isReverseWrap={false}
         fullHeight={false}
-        rightSection={null}
-        RSJustify="center"
-        desTitle="What powerful benefits do this feature have ?"
-        title="Key benefits of this feature"
+        activeHead={false}
+        paddingBottom={isMobile ? '20px' : '80px'}
         doubleOption={false}
-        paddingToTopLayer={isMobile ? '10px' : '80px'}
-        headTextAlign="left"
-        paddingBottom={isMobile ? '10px' : '80px'}
+        isBackground={true}
       >
         <Flex
-          wrap="wrap"
           w="100%"
+          wrap="wrap"
           justify="center"
-          gap={10}
+          direction="column"
+          align="center"
+          px={10}
+          gap={20}
         >
-          {product?.features?.map((feature) => {
-            const Icon = feature.icon as IconType
-            return (
-              <StyledCard
-                key={feature.name}
-                bg="transparent"
-              >
-                <RadialHoverEffect
-                  style={{ width: '100%', height: '100%' }}
-                  color={SavedColors.highlite}
-                  borderRadius="0px"
-                  shape={true}
-                  opacity={0.2}
-                >
-                  <TextResponsive
-                    $textalign="center"
-                    style={{
-                      position: 'absolute',
-                      top: '50%',
-                      left: '50%',
-                      transform: 'translate(-50%, -50%)',
-                      zIndex: 4,
-                      paddingInline: '10px',
-                      width: '90%',
-                    }}
-                    fontSize="17px"
-                    fontWeight="500"
-                  >
-                    {feature.name}
-                  </TextResponsive>
-                  <Icon
-                    size="60%"
-                    style={{
-                      position: 'absolute',
-                      top: '50%',
-                      left: '50%',
-                      transform: 'translate(-50%,-50%)',
-                      zIndex: 2,
-                      opacity: 0.07,
-                    }}
-                    color={SavedColors.highlite}
-                  />
-                </RadialHoverEffect>
-              </StyledCard>
-            )
-          })}
+          <TextWithFamily
+            $font="DM Sans"
+            fontWeight="400"
+            fontSize="18px"
+            color={SavedColors.highlite}
+            $textalign={isMobile ? 'left' : 'center'}
+          >
+            What powerful benefits do this feature have ?
+          </TextWithFamily>
+          <TextResponsive
+            $font="DM Serif Text"
+            fontWeight="500"
+            fontSize="32px"
+            color={SavedColors.TextColor}
+            $textalign={isMobile ? 'left' : 'center'}
+          >
+            Key benefits of this feature
+          </TextResponsive>
+          <Flex
+            wrap="wrap"
+            w="100%"
+            justify="center"
+            gap={10}
+            py={50}
+          >
+            {pageInfo?.features?.map((feature) => {
+              const Icon = feature.icon as IconType
+              return (
+                <Card
+                  key={feature.id}
+                  text={feature.name}
+                  id={feature.id}
+                  headerIcon={
+                    <Icon
+                      size={24}
+                      color={SavedColors.black}
+                    />
+                  }
+                  footerIcon={
+                    <Icon
+                      size="60%"
+                      style={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%,-50%)',
+                        zIndex: -1,
+                        opacity: 0.07,
+                      }}
+                      color={SavedColors.highlite}
+                    />
+                  }
+                />
+              )
+            })}
+          </Flex>
+          <TextWithFamily
+            $font="Inter"
+            fontWeight="400"
+            $textalign={isMobile ? 'left' : 'center'}
+          >
+            {pageInfo?.description}
+          </TextWithFamily>
+          <TextWithFamily
+            $font="Inter"
+            fontWeight="400"
+            $textalign={isMobile ? 'left' : 'center'}
+          >
+            {pageInfo?.descriptionSecond}
+          </TextWithFamily>
         </Flex>
       </Wrapper>
     </div>

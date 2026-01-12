@@ -10,6 +10,9 @@ export const Container = styled.div`
   right: 25px;
   bottom: 25px;
   z-index: 50;
+  @media (max-width: 1024px) {
+    bottom: 95px;
+  }
 `
 
 export const BackgroundCircle = styled(motion.div)`

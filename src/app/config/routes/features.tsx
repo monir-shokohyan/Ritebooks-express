@@ -1,82 +1,49 @@
-import { ABIPage } from '@pages/features/Abi'
-import { ASPPage } from '@pages/features/Asp'
-import { LAMPage } from '@pages/features/Lam'
-import { LMSPage } from '@pages/features/Lms'
-import { PPRPage } from '@pages/features/Ppr'
-import { SCAPage } from '@pages/features/Sca'
-import { WMPCPage } from '@pages/features/Wmpc'
+import { EBRPage } from '@pages/features/Ebr'
+import { IMPage } from '@pages/features/Im'
+import { POSPage } from '@pages/features/Pos'
+import { SAPage } from '@pages/features/Sa'
 import { Paths } from '@shared/api/paths'
 import { RouteType } from '@shared/types/router/route-type'
 import { ErrorSuspense } from '@shared/ui/error-suspense'
 
 export const featuresRoute: RouteType[] = [
   {
-    key: Paths.AccurateSalaryProcessing,
+    key: Paths.SimplifiedAccounting,
     guarded: '',
-    path: Paths.AccurateSalaryProcessing,
+    path: Paths.SimplifiedAccounting,
     element: (
-      <ErrorSuspense suspenseKey={Paths.AccurateSalaryProcessing}>
-        <ASPPage />
+      <ErrorSuspense suspenseKey={Paths.SimplifiedAccounting}>
+        <SAPage />
       </ErrorSuspense>
     ),
   },
   {
-    key: Paths.AttendanceBiometricIntegration,
+    key: Paths.InventoryManagement,
     guarded: '',
-    path: Paths.AttendanceBiometricIntegration,
+    path: Paths.InventoryManagement,
     element: (
-      <ErrorSuspense suspenseKey={Paths.AttendanceBiometricIntegration}>
-        <ABIPage />
+      <ErrorSuspense suspenseKey={Paths.InventoryManagement}>
+        <IMPage />
       </ErrorSuspense>
     ),
   },
   {
-    key: Paths.LeaveManagementSystem,
+    key: Paths.PointOfSale,
     guarded: '',
-    path: Paths.LeaveManagementSystem,
+    path: Paths.PointOfSale,
     element: (
-      <ErrorSuspense suspenseKey={Paths.LeaveManagementSystem}>
-        <LMSPage />
+      <ErrorSuspense suspenseKey={Paths.PointOfSale}>
+        <POSPage />
       </ErrorSuspense>
     ),
   },
   {
-    key: Paths.LoansAdvancesManagement,
+    key: Paths.EssentialBusinessReporting,
     guarded: '',
-    path: Paths.LoansAdvancesManagement,
+    path: Paths.EssentialBusinessReporting,
     element: (
-      <ErrorSuspense suspenseKey={Paths.LoansAdvancesManagement}>
-        <LAMPage />
-      </ErrorSuspense>
-    ),
-  },
-  {
-    key: Paths.PayslipsPayrollRegisters,
-    guarded: '',
-    path: Paths.PayslipsPayrollRegisters,
-    element: (
-      <ErrorSuspense suspenseKey={Paths.PayslipsPayrollRegisters}>
-        <PPRPage />
-      </ErrorSuspense>
-    ),
-  },
-  {
-    key: Paths.StatutoryComplianceAutomation,
-    guarded: '',
-    path: Paths.StatutoryComplianceAutomation,
-    element: (
-      <ErrorSuspense suspenseKey={Paths.StatutoryComplianceAutomation}>
-        <SCAPage />
-      </ErrorSuspense>
-    ),
-  },
-  {
-    key: Paths.WeeklyMonthlyPayrollCycles,
-    guarded: '',
-    path: Paths.WeeklyMonthlyPayrollCycles,
-    element: (
-      <ErrorSuspense suspenseKey={Paths.WeeklyMonthlyPayrollCycles}>
-        <WMPCPage />
+      <ErrorSuspense suspenseKey={Paths.EssentialBusinessReporting}>
+        <EBRPage />
       </ErrorSuspense>
     ),
   },

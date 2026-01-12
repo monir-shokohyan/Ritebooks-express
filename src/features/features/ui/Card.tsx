@@ -17,6 +17,7 @@ const Card = ({
   textResponsive = true,
   description,
   isButton = false,
+  target,
 }: CardProps) => {
   const isTablet = useMediaQuery('(max-width: 1140px)')
   const isMobile = useMediaQuery('(max-width: 760px)')
@@ -73,6 +74,7 @@ const Card = ({
         id={id}
         isMobile={isMobile}
         isButton={isButton}
+        target={target}
       />
       {footerIcon}
     </StyledCard>

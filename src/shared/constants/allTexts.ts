@@ -1,42 +1,56 @@
-/* eslint-disable sonarjs/no-duplicate-string */
 import React from 'react'
 import { IconType } from 'react-icons'
 import {
   FaBalanceScale,
-  FaCalculator,
+  FaBell,
+  FaBoxOpen,
   FaCalendarAlt,
+  FaCalendarCheck,
+  FaCashRegister,
+  FaChartBar,
   FaChartLine,
+  FaChartPie,
   FaClock,
   FaCodeBranch,
+  FaCreditCard,
   FaDollarSign,
   FaExchangeAlt,
   FaEye,
   FaFileAlt,
-  FaFileInvoice,
+  FaFileContract,
   FaFileInvoiceDollar,
   FaFingerprint,
-  FaGavel,
-  FaHistory,
   FaLaptop,
+  FaListAlt,
   FaLock,
-  FaMoneyBillAlt,
   FaMoneyBillWave,
-  FaPercentage,
   FaPhoneAlt,
+  FaPrint,
+  FaReceipt,
   FaRocket,
+  FaShoppingBasket,
+  FaShoppingCart,
   FaStore,
   FaStoreAlt,
-  FaSyncAlt,
+  FaSync,
   FaTachometerAlt,
+  FaTags,
   FaTools,
   FaUnlock,
-  FaUserCheck,
-  FaUserCog,
   FaUserLock,
+  FaUsers,
+  FaUserShield,
+  FaWarehouse,
 } from 'react-icons/fa'
 import { FaLocationDot } from 'react-icons/fa6'
 import { IoBarChart } from 'react-icons/io5'
-import { LuBuilding2, LuGlobe, LuPackage, LuReceiptText, LuShoppingCart } from 'react-icons/lu'
+import {
+  LuBuilding2,
+  LuGlobe,
+  LuPackage,
+  LuReceiptText,
+  LuShoppingCart,
+} from 'react-icons/lu'
 import { MdEmail } from 'react-icons/md'
 import { MotionProps } from 'framer-motion'
 
@@ -75,6 +89,7 @@ export interface SectionType {
   id?: number
   style?: React.CSSProperties
   isLeft?: boolean
+  number?: number
 }
 
 interface Feature {
@@ -146,6 +161,7 @@ export interface TotalDataItem {
   id?: Feature | string
   bubbles?: BubbleItem[]
   imageUrlSet?: { id: number; url: string }[]
+  number?: number
 }
 
 export const TotalData: TotalDataItem[] = [
@@ -362,6 +378,7 @@ export const TotalData: TotalDataItem[] = [
           'Day-end & Month-end Reports',
         ],
         icon: LuReceiptText,
+        target: Paths.SimplifiedAccounting,
       },
       {
         id: 2,
@@ -382,6 +399,7 @@ export const TotalData: TotalDataItem[] = [
           'Low Stock & Expiry Notifications',
         ],
         icon: LuPackage,
+        target: Paths.InventoryManagement,
       },
       {
         id: 3,
@@ -403,6 +421,7 @@ export const TotalData: TotalDataItem[] = [
           'Hold / Recall Sale',
         ],
         icon: LuShoppingCart,
+        target: Paths.PointOfSale,
       },
       {
         id: 4,
@@ -424,6 +443,7 @@ export const TotalData: TotalDataItem[] = [
           'Outstanding Receivables & Payables',
         ],
         icon: IoBarChart,
+        target: Paths.EssentialBusinessReporting,
       },
     ],
   },
@@ -454,71 +474,6 @@ export const TotalData: TotalDataItem[] = [
         ariaLabel: 'Centralized control with branch-level access',
         isActive: true,
         icon: FaUserLock,
-      },
-    ],
-  },
-  {
-    name: 'features',
-    dTitle: 'What features does RitePayroll have?',
-    title: 'Here, check out our features',
-    target: '/',
-    sectionId: 'dashboard-features-section',
-    features: [
-      {
-        id: 1,
-        name: 'Accurate Salary Processing',
-        ariaLabel: 'Accurate Salary Processing',
-        isActive: true,
-        icon: FaClock,
-        target: Paths.AccurateSalaryProcessing,
-      },
-      {
-        id: 2,
-        name: 'Weekly & Monthly Payroll Cycles',
-        ariaLabel: 'Weekly & Monthly Payroll Cycles',
-        isActive: true,
-        icon: FaDollarSign,
-        target: Paths.WeeklyMonthlyPayrollCycles,
-      },
-      {
-        id: 3,
-        name: 'Attendance & Biometric Integration',
-        ariaLabel: 'Attendance & Biometric Integration',
-        isActive: true,
-        icon: FaFingerprint,
-        target: Paths.AttendanceBiometricIntegration,
-      },
-      {
-        id: 4,
-        name: 'Leave Management System',
-        ariaLabel: 'Leave Management System',
-        isActive: true,
-        icon: FaCalendarAlt,
-        target: Paths.LeaveManagementSystem,
-      },
-      {
-        id: 5,
-        name: 'Statutory Compliance Automation',
-        ariaLabel: 'Statutory Compliance Automation',
-        isActive: true,
-        icon: FaFileAlt,
-        target: Paths.StatutoryComplianceAutomation,
-      },
-      {
-        id: 6,
-        name: 'Loans & Advances Management',
-        ariaLabel: 'Loans & Advances Management',
-        isActive: true,
-        icon: FaMoneyBillAlt,
-        target: Paths.LoansAdvancesManagement,
-      },
-      {
-        id: 7,
-        name: 'Payslips & Payroll Registers',
-        ariaLabel: 'Payslips & Payroll Registers',
-        isActive: true,
-        icon: FaFileInvoiceDollar,
-        target: Paths.PayslipsPayrollRegisters,
       },
     ],
   },
@@ -643,108 +598,83 @@ export const TotalData: TotalDataItem[] = [
     ],
   },
   {
-    id: Features.ASP,
-    name: Features.AccurateSalaryProcessing,
+    id: Features.SA,
+    number: 1,
+    name: Features.SimplifiedAccounting,
     overview:
-      'Ensure precise and error-free salary calculations with fully customizable salary structures, user-defined heads, and automated processing that adapts to your organization’s policies.',
-    imageUrl: '/features/ASP.svg',
+      'Ritebooks Express helps you track and manage your finances accurately without needing accounting expertise.',
+    description:
+      'Get a clear view of your income, expenses, and business performance anytime, anywhere.',
+    imageUrl: '/features/SA.svg',
     features: [
-      { name: 'User-Defined Salary Heads', icon: FaCalculator },
-      { name: 'Custom Salary Structures', icon: FaUserCog },
-      { name: 'Automated Payslip Generation', icon: FaFileInvoice },
-      { name: 'Comprehensive Salary Registers', icon: FaFileAlt },
+      { id: 1, name: 'Chart of Accounts', icon: FaListAlt },
+      { id: 2, name: 'Customer & Supplier Ledgers', icon: FaUsers },
+      { id: 3, name: 'Cash & Bank Management', icon: FaMoneyBillWave },
+      { id: 4, name: 'Sales & Purchase Invoicing', icon: FaFileInvoiceDollar },
+      { id: 5, name: 'Payment Receipts & Vouchers', icon: FaReceipt },
+      { id: 6, name: 'Expense Tracking', icon: FaChartPie },
+      { id: 7, name: 'Day-end & Month-end Reports', icon: FaCalendarCheck },
     ],
-    brochureLink: '/brochures/RitePayroll.pdf',
-    target: Paths.AccurateSalaryProcessing,
+    brochureLink: '/brochures/RitebooksExpress.pdf',
+    target: Paths.SimplifiedAccounting,
   },
   {
-    id: Features.ABI,
-    name: Features.AttendanceBiometricIntegration,
+    id: Features.IM,
+    number: 2,
+    name: Features.InventoryManagement,
     overview:
-      'Accurately track employee attendance with seamless biometric device integration, shift management, and real-time monitoring of overtime, late arrivals, and early departures.',
-    imageUrl: '/features/ABI.svg',
+      'Never lose track of your stock again with powerful yet simple inventory tools.',
+    description:
+      'Perfect for retail stores, service businesses with stock, and small shops, keep your inventory accurate and under control.',
+    imageUrl: '/features/IM.svg',
     features: [
-      { name: 'Daily or Monthly Attendance Processing', icon: FaCalendarAlt },
-      { name: 'Shift Management', icon: FaClock },
-      { name: 'Overtime, Late Coming & Early Going Tracking', icon: FaHistory },
-      { name: 'Manual Attendance with Approval Workflow', icon: FaUserCheck },
-      { name: 'Biometric Device Integration', icon: FaSyncAlt },
+      { id: 1, name: 'Item & Product Master', icon: FaBoxOpen },
+      { id: 2, name: 'Stock Inward & Outward', icon: FaExchangeAlt },
+      { id: 3, name: 'Real-time Stock Balances', icon: FaSync },
+      { id: 4, name: 'Reorder Level Alerts', icon: FaBell },
+      { id: 5, name: 'Basic Item Categorization', icon: FaTags },
+      { id: 6, name: 'Stock Valuation Reports', icon: FaChartLine },
     ],
-    brochureLink: '/brochures/RitePayroll.pdf',
-    target: Paths.AttendanceBiometricIntegration,
+    brochureLink: '/brochures/RitebooksExpress.pdf',
+    target: Paths.InventoryManagement,
   },
   {
-    id: Features.LMS,
-    name: Features.LeaveManagementSystem,
+    id: Features.POS,
+    number: 3,
+    name: Features.PointOfSale,
     overview:
-      'Streamline leave requests, approvals, and tracking with customizable leave types, balance management, encashment options, and carry-forward rules.',
-    imageUrl: '/features/LMS.svg',
+      'Speed up sales and improve customer experience with a fast, simple, and reliable POS system.',
+    description:
+      'Designed specifically for counters where speed, simplicity, and billing accuracy matter most.',
+    imageUrl: '/features/POS.svg',
     features: [
-      { name: 'User-Defined Leave Types', icon: FaCalendarAlt },
-      { name: 'Leave Balances & Real-Time Tracking', icon: FaHistory },
-      { name: 'Online Leave Applications & Approvals', icon: FaFileAlt },
-      { name: 'Leave Encashment Options', icon: FaMoneyBillWave },
-      { name: 'Configurable Carry Forward Rules', icon: FaSyncAlt },
+      { id: 1, name: 'Quick Billing Interface', icon: FaCashRegister },
+      { id: 2, name: 'Cash & Multiple Payment Modes', icon: FaCreditCard },
+      { id: 3, name: 'Invoice Printing', icon: FaPrint },
+      { id: 4, name: 'Sales Summaries', icon: FaChartBar },
+      { id: 5, name: 'Daily Cash Reports', icon: FaFileAlt },
+      { id: 6, name: 'Simple User Controls', icon: FaUserShield },
     ],
-    brochureLink: '/brochures/RitePayroll.pdf',
-    target: Paths.LeaveManagementSystem,
+    brochureLink: '/brochures/RitebooksExpress.pdf',
+    target: Paths.PointOfSale,
   },
   {
-    id: Features.LAM,
-    name: Features.LoansAdvancesManagement,
+    id: Features.EBR,
+    number: 4,
+    name: Features.EssentialBusinessReporting,
     overview:
-      'Efficiently manage employee loans and advances with automated EMI-based recovery, custom allowances, and deductions directly integrated into payroll.',
-    imageUrl: '/features/LAM.svg',
+      'Access clear, meaningful, and easy-to-understand reports to make smarter business decisions.',
+    description:
+      'All reports are designed to be actionable and readable, even if you’re not an accountant.',
+    imageUrl: '/features/EBR.svg',
     features: [
-      { name: 'User-Defined Allowances & Deductions', icon: FaPercentage },
-      { name: 'Employee Loans & Advances', icon: FaMoneyBillWave },
-      { name: 'EMI-Based Automatic Recovery', icon: FaSyncAlt },
+      { id: 1, name: 'Sales Reports', icon: FaShoppingCart },
+      { id: 2, name: 'Purchase Reports', icon: FaShoppingBasket },
+      { id: 3, name: 'Stock Reports', icon: FaWarehouse },
+      { id: 4, name: 'Customer & Supplier Statements', icon: FaFileContract },
+      { id: 5, name: 'Basic Financial Summaries', icon: FaChartPie },
     ],
-    brochureLink: '/brochures/RitePayroll.pdf',
-    target: Paths.LoansAdvancesManagement,
-  },
-  {
-    id: Features.PPR,
-    name: Features.PayslipsPayrollRegisters,
-    overview:
-      'Generate professional payslips and detailed payroll registers automatically, with secure employee self-service access to view and download payslips anytime.',
-    imageUrl: '/features/PPR.svg',
-    features: [
-      { name: 'Automated Payslip Generation', icon: FaFileInvoice },
-      { name: 'Detailed Salary Registers', icon: FaFileAlt },
-      { name: 'Employee Self-Service Portal Access', icon: FaUserCheck },
-    ],
-    brochureLink: '/brochures/RitePayroll.pdf',
-    target: Paths.PayslipsPayrollRegisters,
-  },
-  {
-    id: Features.SCA,
-    name: Features.StatutoryComplianceAutomation,
-    overview:
-      'Stay fully compliant with automated handling of PAYE (Resident/Non-Resident), NSSF, statutory deductions, tax returns, and comprehensive audit trails.',
-    imageUrl: '/features/SCA.svg',
-    features: [
-      { name: 'PAYE Calculation (Resident / Non-Resident)', icon: FaGavel },
-      { name: 'NSSF & Statutory Deductions', icon: FaPercentage },
-      { name: 'Automated Tax Returns & Reports', icon: FaFileAlt },
-      { name: 'Complete Audit Trails', icon: FaHistory },
-    ],
-    brochureLink: '/brochures/RitePayroll.pdf',
-    target: Paths.StatutoryComplianceAutomation,
-  },
-  {
-    id: Features.WMPC,
-    name: Features.WeeklyMonthlyPayrollCycles,
-    overview:
-      'Run payroll on weekly or monthly cycles with full flexibility. Seamlessly integrate attendance data for accurate processing and timely salary disbursements.',
-    imageUrl: '/features/WMPC.svg',
-    features: [
-      { name: 'Support for Weekly Payroll Cycles', icon: FaCalendarAlt },
-      { name: 'Support for Monthly Payroll Cycles', icon: FaClock },
-      { name: 'Automatic Integration with Attendance Data', icon: FaSyncAlt },
-      { name: 'Flexible Processing Schedules', icon: FaMoneyBillWave },
-    ],
-    brochureLink: '/brochures/RitePayroll.pdf',
-    target: Paths.WeeklyMonthlyPayrollCycles,
+    brochureLink: '/brochures/RitebooksExpress.pdf',
+    target: Paths.EssentialBusinessReporting,
   },
 ]

@@ -27,4 +27,5 @@ export interface HorWrapperType {
   headTextAlign?: 'left' | 'center' | 'right'
   flip?: boolean
   isBackground?: boolean
+  bgFlexAlign?: 'flex-start' | 'center' | 'flex-end'
 }

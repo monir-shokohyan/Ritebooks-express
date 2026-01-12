@@ -295,6 +295,7 @@ const SearchInput = () => {
         onClick={() => spotlight.open()}
         variant="outline"
         radius={10}
+        maw={500}
         leftSection={
           <FaSearch
             size={16}
@@ -307,7 +308,12 @@ const SearchInput = () => {
             p={5}
             style={{ borderRadius: '5px', border: '1px solid lightgray' }}
           >
-            <TextResponsive fontSize="12px">Ctrl + K</TextResponsive>
+            <TextResponsive
+              fontSize="12px"
+              style={{ textWrap: 'nowrap' }}
+            >
+              Ctrl + K
+            </TextResponsive>
           </Container>
         }
       >

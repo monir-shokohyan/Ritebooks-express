@@ -25,7 +25,11 @@ export const StyledCard = styled(Card)<
   flex-direction: column;
   align-items: flex-start;
 `
-export const StyledButton = styled(Button)<ButtonProps>`
+export const StyledButton = styled(Button)<
+  ButtonProps & {
+    onClick: () => void
+  }
+>`
   box-shadow:
     0 0.706592px 0.706592px -0.666667px #00000014,
     0 1.80656px 1.80656px -1.33333px #00000014,

@@ -8,9 +8,11 @@ export interface CardProps {
   textResponsive?: boolean
   description?: string
   isButton?: boolean
+  target?: string
 }
 export interface CardFooterProps {
   id?: number
   isMobile: boolean
   isButton: boolean
+  target?: string
 }

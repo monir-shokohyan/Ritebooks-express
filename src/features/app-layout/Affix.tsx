@@ -1,13 +1,15 @@
 import { FaArrowUp } from 'react-icons/fa'
 import { ActionIcon, Affix, Transition } from '@mantine/core'
-import { useWindowScroll } from '@mantine/hooks'
+import { useMediaQuery, useWindowScroll } from '@mantine/hooks'
 
 import { SavedColors } from '@shared/constants'
 
 const AffixComponent = () => {
   const [scroll, scrollTo] = useWindowScroll()
+  const isMobile = useMediaQuery('(max-width: 760px)')
+  const bottomPosition = isMobile ? 95 : 30
   return (
-    <Affix position={{ bottom: 30, left: 30 }}>
+    <Affix position={{ bottom: bottomPosition, left: 30 }}>
       <Transition
         transition="slide-up"
         mounted={scroll.y > 0}

@@ -3,13 +3,11 @@ import { IconType } from 'react-icons'
 import { Features } from '@shared/constants/featuresMap'
 
 export type ProductsType =
-  | Features.AccurateSalaryProcessing
-  | Features.AttendanceBiometricIntegration
-  | Features.LeaveManagementSystem
-  | Features.LoansAdvancesManagement
-  | Features.PayslipsPayrollRegisters
-  | Features.StatutoryComplianceAutomation
-  | Features.WeeklyMonthlyPayrollCycles
+  | 'welcome'
+  | Features.SimplifiedAccounting
+  | Features.InventoryManagement
+  | Features.PointOfSale
+  | Features.EssentialBusinessReporting
 
 interface DeploymentOption {
   title: string

@@ -18,6 +18,7 @@ const NavbarS = styled.nav<{ $isOpen: boolean }>`
   background-color: ${SavedColors.PrimaryWhite};
   transform: translateY(-50%);
   border-radius: 3px 0 0 3px;
+
   transition:
     right 0.3s ease-in-out,
     width 0.3s ease-in-out;
@@ -28,7 +29,12 @@ const NavbarS = styled.nav<{ $isOpen: boolean }>`
     rgba(255, 255, 255, 0.3) 2px 2px 4px inset,
     rgba(0, 0, 0, 0.3) -2px -2px 4px inset;
   @media (max-width: 1024px) {
-    display: none;
+    bottom: 0%;
+    right: 0%;
+    top: auto;
+    width: 100%;
+    transform: translateY(0%);
+    flex-direction: row;
   }
 `
 
@@ -68,6 +74,10 @@ const MenubarS = styled.div`
   height: 100%;
   width: 100%;
   padding: 20px 0;
+  @media (max-width: 1024px) {
+    flex-direction: row;
+    padding: 10px 0;
+  }
 `
 
 const MenuItems = styled(Link)`
@@ -75,7 +85,6 @@ const MenuItems = styled(Link)`
   display: flex;
   justify-content: flex-start;
   padding: 15px 20px;
-  width: 100%;
   align-items: center;
   text-decoration: none;
   color: ${SavedColors.TextColor};
@@ -84,11 +93,16 @@ const MenuItems = styled(Link)`
   font-weight: 500;
   font-style: normal;
   transition: all 0.3s ease;
+  flex-grow: 1;
 
   &:hover,
   &.active {
     color: ${SavedColors.highlite};
     background-color: ${SavedColors.highliteOpacityExtreme};
+  }
+  @media (max-width: 1024px) {
+    justify-content: center;
+    padding: 15px 15px;
   }
 `
 
@@ -144,9 +158,9 @@ const MenuButtonContainer = styled(UnstyledButton)`
 const ProductMenuTrigger = styled.div`
   display: flex;
   justify-content: flex-start;
-  padding: 15px 3px;
+  padding: 14px 15px 14px 2px;
+  gap: 0px;
   align-items: center;
-  width: 100%;
   text-decoration: none;
   color: ${SavedColors.TextColor};
   font-size: 15px;
@@ -163,6 +177,10 @@ const ProductMenuTrigger = styled.div`
   &.active {
     color: ${SavedColors.highlite};
     background-color: rgba(255, 255, 255, 0.1);
+  }
+  @media (max-width: 1024px) {
+    padding: 14px 15px;
+    gap: 10px;
   }
 `
 

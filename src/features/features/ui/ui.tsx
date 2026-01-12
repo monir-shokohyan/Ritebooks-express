@@ -70,6 +70,7 @@ const Ui = memo(() => {
                   id={feature.id}
                   textResponsive={false}
                   description={feature.description}
+                  target={feature.target}
                   isButton
                   headerIcon={
                     <TextResponsive

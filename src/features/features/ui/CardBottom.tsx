@@ -1,4 +1,5 @@
 import { MdOutlineArrowOutward } from 'react-icons/md'
+import { useNavigate } from 'react-router-dom'
 import { Group } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
 
@@ -8,9 +9,9 @@ import { TextResponsive, TextWithFamily } from '@shared/ui/Typography'
 import { StyledButton } from '../styles'
 import { CardFooterProps } from '../types'
 
-const CardBottom = ({ id, isMobile, isButton }: CardFooterProps) => {
+const CardBottom = ({ id, isMobile, isButton, target }: CardFooterProps) => {
   const isTablet = useMediaQuery('(max-width: 1140px)')
-
+  const navigate = useNavigate()
   return (
     <Group
       justify="space-between"
@@ -30,6 +31,7 @@ const CardBottom = ({ id, isMobile, isButton }: CardFooterProps) => {
           fullWidth
           rightSection={<MdOutlineArrowOutward size={20} />}
           color="black"
+          onClick={() => navigate(target as string)}
         >
           <TextWithFamily
             $textalign="left"
