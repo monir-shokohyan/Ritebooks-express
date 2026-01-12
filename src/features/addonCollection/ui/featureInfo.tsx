@@ -67,7 +67,7 @@ const FeatureInfo = ({ page }: { page: ProductsType }) => {
                   id={feature.id}
                   headerIcon={
                     <Icon
-                      size={24}
+                      size={16}
                       color={SavedColors.black}
                     />
                   }
