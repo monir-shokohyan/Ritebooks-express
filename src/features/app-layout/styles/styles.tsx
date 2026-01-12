@@ -14,7 +14,7 @@ const NavbarS = styled.nav<{ $isOpen: boolean }>`
   width: ${(props) => (props.$isOpen ? '60px' : '0px')};
   align-items: center;
   justify-content: space-between;
-  z-index: 4;
+  z-index: 9999;
   background-color: ${SavedColors.PrimaryWhite};
   transform: translateY(-50%);
   border-radius: 3px 0 0 3px;

@@ -17,7 +17,11 @@ import { Ctc } from '@shared/ui/CTC'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
 import { Logo } from '@shared/ui/Logo'
 import { SearchInput } from '@shared/ui/searchInput/searchInput'
-import { TextWithFamily, TitleWithFamily } from '@shared/ui/Typography'
+import {
+  TextResponsive,
+  TextWithFamily,
+  TitleWithFamily,
+} from '@shared/ui/Typography'
 
 import { WelcomeTitle } from '../styles/styles'
 import { WelcomeFeature } from './welcomeFeature'
@@ -42,8 +46,8 @@ const Welcome = memo(() => {
           gap={20}
           align="center"
           w={isMobile ? '100%' : '60%'}
-          pt={isMobile ? '2rem' : '5rem'}
-          pb="5rem"
+          pt={isMobile ? '1rem' : '5rem'}
+          pb={isMobile ? '2rem' : '5rem'}
         >
           <Logo />
           <TitleWithFamily
@@ -67,17 +71,17 @@ const Welcome = memo(() => {
 
           <Carousel
             emblaOptions={{ loop: true, align: 'start' }}
-            style={{ paddingInline: '2rem' }}
+            style={{ paddingInline: isMobile ? '0px' : '2rem' }}
             nextControlIcon={<FaArrowRight color={SavedColors.highlite} />}
             previousControlIcon={<FaArrowLeft color={SavedColors.highlite} />}
           >
             <Carousel.Slide>
-              <TextWithFamily
+              <TextResponsive
                 $font="Inter"
                 $textalign="center"
               >
                 {pageInfo?.description}
-              </TextWithFamily>
+              </TextResponsive>
             </Carousel.Slide>
             <Carousel.Slide>
               <TextWithFamily
@@ -90,17 +94,17 @@ const Welcome = memo(() => {
           </Carousel>
 
           <Container
-            gap={20}
+            gap={isMobile ? 5 : 20}
             w="100%"
             wrap="wrap"
             justify="center"
             align="center"
-            py={20}
+            py={isMobile ? 0 : 20}
           >
             <Button
               radius={10}
               leftSection={<FaCalendarAlt />}
-              size="md"
+              size={isMobile ? 'sm' : 'md'}
               w={{ base: '100%', sm: 'auto', md: 'auto', lg: 'auto' }}
               color={SavedColors.DemWhite}
               onClick={() =>
@@ -114,7 +118,7 @@ const Welcome = memo(() => {
             <Button
               component="a"
               radius={10}
-              size="md"
+              size={isMobile ? 'sm' : 'md'}
               leftSection={<FaDownload />}
               w={{ base: '100%', sm: 'auto', md: 'auto', lg: 'auto' }}
               variant="outline"

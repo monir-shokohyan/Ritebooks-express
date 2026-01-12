@@ -10,7 +10,7 @@ import { Ripple } from '@shared/ui/AnimatedBg'
 import { Ctc } from '@shared/ui/CTC'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
 import { IconWithText } from '@shared/ui/IconWithText'
-import { TextResponsive, TextWithFamily } from '@shared/ui/Typography'
+import { TextResponsive } from '@shared/ui/Typography'
 
 const Ui = memo(() => {
   const pageInfo = FindByName('whoIsFor')
@@ -22,8 +22,9 @@ const Ui = memo(() => {
         isReverseWrap={false}
         fullHeight={false}
         activeHead={false}
-        $paddingTop={isMobile ? '20px' : '80px'}
+        paddingBottom={isMobile ? '40px' : '80px'}
         doubleOption={false}
+        isBackground
       >
         <Flex
           w="100%"
@@ -48,11 +49,11 @@ const Ui = memo(() => {
                 left="50%"
                 translate="-50%, -50%"
                 zIndex={-1}
-                size="23rem"
+                size="16rem"
               />
             </div>
           )}
-          <TextWithFamily
+          <TextResponsive
             $font="DM Sans"
             fontWeight="400"
             fontSize="18px"
@@ -60,7 +61,7 @@ const Ui = memo(() => {
             $textalign={isMobile ? 'left' : 'center'}
           >
             {pageInfo?.dTitle}
-          </TextWithFamily>
+          </TextResponsive>
           <TextResponsive
             $font="DM Serif Text"
             fontWeight="500"
@@ -127,26 +128,26 @@ const Ui = memo(() => {
                   >
                     <FaRegCircleDot color={SavedColors.highlite} />
 
-                    <TextWithFamily
+                    <TextResponsive
                       $font="Inter"
                       fontWeight="400"
                       style={{ textWrap: 'nowrap' }}
-                      fontSize="14px"
+                      fontSize="15px"
                     >
                       {feature.name}
-                    </TextWithFamily>
+                    </TextResponsive>
                   </Flex>
                 )
               })}
             </Flex>
           )}
-          <TextWithFamily
+          <TextResponsive
             $font="Inter"
             fontWeight="400"
             $textalign={isMobile ? 'left' : 'center'}
           >
             {pageInfo?.description}
-          </TextWithFamily>
+          </TextResponsive>
         </Flex>
       </Wrapper>
     </div>

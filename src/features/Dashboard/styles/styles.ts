@@ -32,7 +32,7 @@ const WelcomeTitle = styled(TextWithFamily)`
   animation: ${fadeIn} 1s ease-out 0.5s both;
   font-size: 3.2rem;
   @media (max-width: 1000px) {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 `
 

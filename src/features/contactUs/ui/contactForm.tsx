@@ -10,7 +10,7 @@ import { Box, Flex, Loader, Notification, VisuallyHidden } from '@mantine/core'
 import { SavedColors } from '@shared/constants'
 import { FindByName } from '@shared/helpers'
 import { RadialHoverEffect } from '@shared/ui/ripple'
-import { TextResponsive, TextWithFamily } from '@shared/ui/Typography'
+import { TextResponsive } from '@shared/ui/Typography'
 
 import { contactFormSchema } from '../schema/schema'
 import { HoveredButton, SimpleInput, SimpleTextArea } from '../styles'
@@ -92,6 +92,7 @@ const ContactFormMain = () => {
       w={{ base: '100%', lg: '100%' }}
       style={{ borderRadius: '5px' }}
       px={10}
+      py={10}
     >
       <Box
         component="form"
@@ -129,14 +130,14 @@ const ContactFormMain = () => {
             {errorMessage}
           </Notification>
         )}
-        <TextWithFamily
+        <TextResponsive
           $font="Roboto"
           fontSize="16px"
           fontWeight="300"
           style={{ marginBottom: '10px', width: '50%' }}
         >
           {pageInfo?.description}
-        </TextWithFamily>
+        </TextResponsive>
 
         <SimpleInput
           placeholder="Enter your full name"

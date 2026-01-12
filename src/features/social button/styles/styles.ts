@@ -11,7 +11,7 @@ export const Container = styled.div`
   bottom: 25px;
   z-index: 50;
   @media (max-width: 1024px) {
-    bottom: 95px;
+    bottom: 75px;
   }
 `
 
@@ -27,6 +27,10 @@ export const BackgroundCircle = styled(motion.div)`
     0px 2px 4px rgba(0, 0, 0, 0.15),
     0px 4px 8px rgba(0, 0, 0, 0.2);
   pointer-events: none;
+  @media (max-width: 1024px) {
+    width: 280px;
+    height: 280px;
+  }
 `
 
 export const FabButton = styled.button`
@@ -46,6 +50,10 @@ export const FabButton = styled.button`
   &:hover {
     background: ${SavedColors.highlite};
     opacity: 0.8;
+  }
+  @media (max-width: 1024px) {
+    width: 40px;
+    height: 40px;
   }
 `
 
@@ -69,5 +77,9 @@ export const MenuItem = styled(motion.a)<MotionaType>`
   transition: transform 0.5s ease-out;
   &:hover {
     transform: scale(1.1);
+  }
+  @media (max-width: 1024px) {
+    width: 40px;
+    height: 40px;
   }
 `

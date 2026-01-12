@@ -16,13 +16,14 @@ const Ui = memo(() => {
       <Wrapper
         isReverseWrap={false}
         fullHeight={false}
+        activeHead={false}
         rightSection={<AboutRightSection pageInfo={pageInfo} />}
         bgImage="/bgSepStraight.svg"
         leftWidth="40%"
         rightWidth="50%"
         $paddingLeftTop={isMobile ? '10px' : '0px'}
         $paddingRightTop={isMobile ? '20px' : '70px'}
-        paddingBottom={isMobile ? '20px' : '90px'}
+        paddingBottom={isMobile ? '40px' : '90px'}
         doubleOption
       >
         <AboutLeftSection

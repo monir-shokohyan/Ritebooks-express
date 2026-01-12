@@ -3,7 +3,7 @@ import { ActionIcon, Flex } from '@mantine/core'
 import { SavedColors } from '@shared/constants'
 import { TotalDataItem } from '@shared/constants/allTexts'
 import { Ctc } from '@shared/ui/CTC'
-import { TextResponsive, TextWithFamily } from '@shared/ui/Typography'
+import { TextResponsive } from '@shared/ui/Typography'
 
 const AboutLeftSection = ({
   pageInfo,
@@ -23,7 +23,7 @@ const AboutLeftSection = ({
       px={10}
       w="100%"
     >
-      <TextWithFamily
+      <TextResponsive
         $font="DM Sans"
         fontWeight="400"
         fontSize="18px"
@@ -31,7 +31,7 @@ const AboutLeftSection = ({
         $textalign="left"
       >
         {pageInfo?.dTitle}
-      </TextWithFamily>
+      </TextResponsive>
       <TextResponsive
         $font="DM Serif Text"
         fontWeight="500"
@@ -71,22 +71,22 @@ const AboutLeftSection = ({
                 </TextResponsive>
               </ActionIcon>
               <Flex direction="column">
-                <TextWithFamily
+                <TextResponsive
                   $font="Inter"
                   fontWeight="400"
                   style={{ textWrap: 'nowrap' }}
                   fontSize="18px"
                 >
                   {Mcard.name}
-                </TextWithFamily>
-                <TextWithFamily
+                </TextResponsive>
+                <TextResponsive
                   $font="Inter"
                   fontWeight="400"
                   style={{ textWrap: 'nowrap' }}
                   fontSize="12px"
                 >
                   {Mcard.description}
-                </TextWithFamily>
+                </TextResponsive>
               </Flex>
             </Flex>
           )

@@ -557,7 +557,7 @@ export const TotalData: TotalDataItem[] = [
   },
   {
     name: 'Contact Us',
-    dTitle: 'Get in Touch',
+    dTitle: '05 ------------- Get in Touch',
     title: 'We’re here to assist you — choose your preferred way to connect',
     description:
       "We'd love to hear from you and start something special together. Call us with any questions.",

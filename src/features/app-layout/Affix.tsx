@@ -7,7 +7,7 @@ import { SavedColors } from '@shared/constants'
 const AffixComponent = () => {
   const [scroll, scrollTo] = useWindowScroll()
   const isMobile = useMediaQuery('(max-width: 760px)')
-  const bottomPosition = isMobile ? 95 : 30
+  const bottomPosition = isMobile ? 75 : 30
   return (
     <Affix position={{ bottom: bottomPosition, left: 30 }}>
       <Transition
@@ -18,7 +18,7 @@ const AffixComponent = () => {
           <ActionIcon
             style={transitionStyles}
             onClick={() => scrollTo({ y: 0 })}
-            size="xl"
+            size={isMobile ? 'lg' : 'xl'}
             color={SavedColors.highlite}
           >
             <FaArrowUp size={16} />

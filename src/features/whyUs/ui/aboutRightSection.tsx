@@ -4,7 +4,7 @@ import { Flex } from '@mantine/core'
 import { SavedColors } from '@shared/constants'
 import { TotalDataItem } from '@shared/constants/allTexts'
 import { Ctc } from '@shared/ui/CTC'
-import { TextResponsive, TextWithFamily } from '@shared/ui/Typography'
+import { TextResponsive } from '@shared/ui/Typography'
 
 const AboutRightSection = ({
   pageInfo,
@@ -24,7 +24,7 @@ const AboutRightSection = ({
       px={10}
       w="100%"
     >
-      <TextWithFamily
+      <TextResponsive
         $font="DM Sans"
         fontWeight="400"
         fontSize="18px"
@@ -32,10 +32,10 @@ const AboutRightSection = ({
         $textalign="left"
       >
         {pageInfo?.dTitle}
-      </TextWithFamily>
+      </TextResponsive>
       <TextResponsive
         $font="DM Serif Text"
-        fontWeight="500"
+        fontWeight="400"
         fontSize="32px"
         color={SavedColors.TextColor}
         $textalign="left"
@@ -43,12 +43,12 @@ const AboutRightSection = ({
         <Ctc text="Ritebooks Express " />
         {pageInfo?.title}
       </TextResponsive>
-      <TextWithFamily
+      <TextResponsive
         $font="Inter"
         fontWeight="400"
       >
         {pageInfo?.description}
-      </TextWithFamily>
+      </TextResponsive>
       <Flex
         direction="column"
         align="flex-start"
@@ -63,14 +63,14 @@ const AboutRightSection = ({
             >
               <FaRegCircleDot color={SavedColors.highlite} />
 
-              <TextWithFamily
+              <TextResponsive
                 $font="Inter"
                 fontWeight="400"
                 style={{ textWrap: 'nowrap' }}
-                fontSize="14px"
+                fontSize="15px"
               >
                 {Mcard.name}
-              </TextWithFamily>
+              </TextResponsive>
             </Flex>
           )
         })}

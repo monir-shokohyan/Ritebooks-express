@@ -1,41 +1,45 @@
 import React from 'react'
 import { TbFileUnknown } from 'react-icons/tb'
 import { Flex } from '@mantine/core'
+import { useMediaQuery } from '@mantine/hooks'
 
 import { SavedColors } from '@shared/constants'
 import { FindByName } from '@shared/helpers'
 import { IconWithText } from '@shared/ui/IconWithText'
-import { TextWithFamily } from '@shared/ui/Typography/Typography'
+import { TextResponsive } from '@shared/ui/Typography/Typography'
 
 const ContactInfo: React.FC = () => {
   const pageInfo = FindByName('contact us')
+  const isMobile = useMediaQuery('(max-width: 760px)')
+
   return (
     <Flex
       w="100%"
       wrap="wrap"
       justify="center"
       direction="column"
-      px={20}
-      gap={30}
+      px={isMobile ? 10 : 20}
+      gap={isMobile ? 10 : 30}
     >
-      <TextWithFamily
-        $font="Roboto"
-        fontWeight="500"
+      <TextResponsive
+        $font="DM Sans"
+        fontWeight="400"
         fontSize="18px"
         color={SavedColors.highlite}
         $textalign="left"
       >
         {pageInfo?.dTitle}
-      </TextWithFamily>
-      <TextWithFamily
-        $font="Roboto"
+      </TextResponsive>
+      <TextResponsive
+        $font="DM Serif Text"
         fontWeight="500"
         fontSize="32px"
         color={SavedColors.TextColor}
         $textalign="left"
       >
         {pageInfo?.title}
-      </TextWithFamily>
+      </TextResponsive>
+
       <Flex
         direction="column"
         gap={5}

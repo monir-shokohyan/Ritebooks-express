@@ -7,7 +7,7 @@ import { SavedColors } from '@shared/constants'
 import { FindByName } from '@shared/helpers'
 import { Ctc } from '@shared/ui/CTC'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
-import { TextResponsive, TextWithFamily } from '@shared/ui/Typography'
+import { TextResponsive } from '@shared/ui/Typography'
 
 import { Card } from './Card'
 
@@ -21,7 +21,7 @@ const Ui = memo(() => {
         isReverseWrap={false}
         fullHeight={false}
         activeHead={false}
-        paddingBottom={isMobile ? '20px' : '80px'}
+        paddingBottom={isMobile ? '40px' : '80px'}
         doubleOption={false}
         isBackground={true}
       >
@@ -34,7 +34,7 @@ const Ui = memo(() => {
           px={10}
           gap={20}
         >
-          <TextWithFamily
+          <TextResponsive
             $font="DM Sans"
             fontWeight="400"
             fontSize="18px"
@@ -42,7 +42,7 @@ const Ui = memo(() => {
             $textalign={isMobile ? 'left' : 'center'}
           >
             {pageInfo?.dTitle}
-          </TextWithFamily>
+          </TextResponsive>
           <TextResponsive
             $font="DM Serif Text"
             fontWeight="500"
@@ -58,7 +58,7 @@ const Ui = memo(() => {
             w="100%"
             justify="center"
             gap={10}
-            py={50}
+            py={isMobile ? 10 : 50}
           >
             {pageInfo?.features?.map((feature) => {
               const Icon = feature.icon as IconType
@@ -91,20 +91,22 @@ const Ui = memo(() => {
               )
             })}
           </Flex>
-          <TextWithFamily
+          <TextResponsive
             $font="Inter"
             fontWeight="400"
+            fontSize="15px"
             $textalign={isMobile ? 'left' : 'center'}
           >
             {pageInfo?.description}
-          </TextWithFamily>
-          <TextWithFamily
+          </TextResponsive>
+          <TextResponsive
             $font="Inter"
+            fontSize="15px"
             fontWeight="400"
             $textalign={isMobile ? 'left' : 'center'}
           >
             {pageInfo?.descriptionSecond}
-          </TextWithFamily>
+          </TextResponsive>
         </Flex>
       </Wrapper>
     </div>

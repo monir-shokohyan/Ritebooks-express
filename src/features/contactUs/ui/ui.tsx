@@ -18,10 +18,8 @@ const Ui = memo(() => {
         RSJustify="center"
         leftWidth="35%"
         rightWidth="60%"
-        paddingToTopLayer={isMobile ? '10px' : '80px'}
         activeHead={false}
-        $paddingLeftTop={isMobile ? '80px' : '120px'}
-        $paddingRightTop={isMobile ? '80px' : '120px'}
+        paddingBottom={isMobile ? '40px' : '80px'}
       >
         <ContactInfo />
       </Wrapper>

@@ -60,14 +60,14 @@ const Card = ({
           </TextWithFamily>
         )}
         {description && description.length > 0 && (
-          <TextWithFamily
+          <TextResponsive
             $font="Inter"
             fontWeight="400"
-            fontSize="12px"
+            fontSize="15px"
             style={{ paddingBottom: isMobile ? '20px' : '0px' }}
           >
             {isMobile ? description.slice(0, 45) + '...' : description}
-          </TextWithFamily>
+          </TextResponsive>
         )}
       </Flex>
 
