@@ -1,11 +1,12 @@
 import { memo } from 'react'
 import { FaGithub, FaGlobe, FaPhoneAlt } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
-import { Flex, Image } from '@mantine/core'
+import { Flex } from '@mantine/core'
 
 import { SavedColors } from '@shared/constants'
 import { ImportantInfo } from '@shared/constants/companyInfo'
 import { IconWithText } from '@shared/ui/IconWithText'
+import { Logo } from '@shared/ui/Logo'
 import { TextWithFamily } from '@shared/ui/Typography'
 
 import { FooterContainer } from './styles'
@@ -18,14 +19,7 @@ const Footer = memo(() => {
         justify="center"
         style={{ width: '300px' }}
       >
-        <Image
-          src="/RITE PAYROLL.png"
-          alt="RitePayroll logo"
-          w={{ base: '170', lg: '220px' }}
-          h={{ base: '40px', lg: '45px' }}
-          fit="contain"
-          loading="lazy"
-        />
+        <Logo />
       </Flex>
       <Flex
         align="center"

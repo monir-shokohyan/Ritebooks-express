@@ -36,7 +36,10 @@ const ContactInfo: React.FC = () => {
       >
         {pageInfo?.title}
       </TextWithFamily>
-      <Flex direction="column">
+      <Flex
+        direction="column"
+        gap={5}
+      >
         {pageInfo?.features?.map((feature) => {
           return (
             <IconWithText
