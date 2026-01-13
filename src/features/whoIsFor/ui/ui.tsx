@@ -42,6 +42,7 @@ const Ui = memo(() => {
                 w="100%"
                 h="100%"
                 fit="contain"
+                alt="Illustration showing who Ritebooks Express is designed for: small business owners, freelancers, and teams managing bookkeeping and accounting"
               />
               <Ripple
                 position="absolute"

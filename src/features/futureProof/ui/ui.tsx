@@ -71,6 +71,7 @@ const Ui = memo(() => {
                     <Icon
                       size={16}
                       color={SavedColors.black}
+                      aria-label={feature.ariaLabel}
                     />
                   }
                   footerIcon={
