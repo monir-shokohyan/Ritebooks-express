@@ -78,7 +78,7 @@ const FeatureRightSection = ({ page }: { page: ProductsType }) => {
           leftSection={<FaDownload />}
           w={{ base: '100%', sm: 'auto', md: 'auto', lg: 'auto' }}
           variant="outline"
-          href="/brochures/RitePayrRitebooksExpress.pdf"
+          href="/brochures/RitebooksExpress.pdf"
           download
           target="_blank"
           rel="noopener noreferrer"
